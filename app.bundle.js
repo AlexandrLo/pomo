@@ -39362,7 +39362,7 @@ function Timer() {
           if (playSound) playLongBreakStart();
           setTimeout(function () {
             restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-              seconds: settings.longBreak
+              minutes: settings.longBreak
             }), autoResume);
           }, 100);
         } else {
@@ -39370,7 +39370,7 @@ function Timer() {
           if (playSound) playShortBreakStart();
           setTimeout(function () {
             restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-              seconds: settings.shortBreak
+              minutes: settings.shortBreak
             }), autoResume);
           }, 100);
         }
@@ -39397,7 +39397,7 @@ function Timer() {
         setTimerState("pomo");
         setTimeout(function () {
           restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-            seconds: settings.pomoLength
+            minutes: settings.pomoLength
           }), autoResume);
         }, 100);
       } // Update play button
@@ -39412,7 +39412,7 @@ function Timer() {
 
   var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
     expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-      seconds: settings.pomoLength
+      minutes: settings.pomoLength
     }),
     autoStart: false,
     onExpire: timerHandler(settings.autoResume, settings.sound)

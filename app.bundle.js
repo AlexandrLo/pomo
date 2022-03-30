@@ -39401,7 +39401,7 @@ function Timer() {
   var simpleRestart = function simpleRestart(time, autoStart) {
     return setTimeout(function () {
       restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-        seconds: time
+        minutes: time
       }), autoStart);
     }, 100);
   };

@@ -26,7 +26,7 @@ function SettingInput(props) {
       </FormLabel>
 
       {type == "number" && (
-        <NumberInput maxW="6rem">
+        <NumberInput maxW="6rem" {...inputProps}>
           <NumberInputField id={id} />
           <NumberInputStepper>
             <NumberIncrementStepper />

@@ -38962,6 +38962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "settingsSlice": () => (/* binding */ settingsSlice),
 /* harmony export */   "toggleAutoResume": () => (/* binding */ toggleAutoResume),
+/* harmony export */   "toggleNotify": () => (/* binding */ toggleNotify),
 /* harmony export */   "toggleSound": () => (/* binding */ toggleSound),
 /* harmony export */   "updateLongBreak": () => (/* binding */ updateLongBreak),
 /* harmony export */   "updatePomoCount": () => (/* binding */ updatePomoCount),
@@ -38978,7 +38979,8 @@ var settingsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice
     shortBreak: 5,
     longBreak: 15,
     autoResume: false,
-    sound: true
+    sound: true,
+    notify: true
   },
   reducers: {
     updatePomoLength: function updatePomoLength(state, action) {
@@ -38998,6 +39000,9 @@ var settingsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice
     },
     toggleSound: function toggleSound(state) {
       state.sound = !state.sound;
+    },
+    toggleNotify: function toggleNotify(state) {
+      state.notify = !state.notify;
     }
   }
 });
@@ -39007,7 +39012,8 @@ var _settingsSlice$action = settingsSlice.actions,
     updateShortBreak = _settingsSlice$action.updateShortBreak,
     updateLongBreak = _settingsSlice$action.updateLongBreak,
     toggleAutoResume = _settingsSlice$action.toggleAutoResume,
-    toggleSound = _settingsSlice$action.toggleSound;
+    toggleSound = _settingsSlice$action.toggleSound,
+    toggleNotify = _settingsSlice$action.toggleNotify;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (settingsSlice.reducer);
 
@@ -39219,6 +39225,14 @@ function SettingsModal(props) {
     onChange: function onChange() {
       dispatch((0,app_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.toggleSound)());
     }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    id: "notify",
+    friendlyName: "Notifications",
+    type: "switch",
+    isChecked: settings.notify,
+    onChange: function onChange() {
+      dispatch((0,app_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.toggleNotify)());
+    }
   })))));
 }
 
@@ -39319,7 +39333,23 @@ function Timer() {
   // Get app settings
   var settings = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.settings;
-  }); // Init sounds
+  }); // Init state
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null)),
+      _useState2 = _slicedToArray(_useState, 2),
+      playIcon = _useState2[0],
+      setPlayIcon = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+      _useState4 = _slicedToArray(_useState3, 2),
+      pomoCounter = _useState4[0],
+      setPomoCounter = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("pomo"),
+      _useState6 = _slicedToArray(_useState5, 2),
+      timerState = _useState6[0],
+      setTimerState = _useState6[1]; // Init sounds
+
 
   var _useSound = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_short_break_start_mp3__WEBPACK_IMPORTED_MODULE_4__),
       _useSound2 = _slicedToArray(_useSound, 1),
@@ -39335,25 +39365,16 @@ function Timer() {
 
   var _useSound7 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_long_break_end_mp3__WEBPACK_IMPORTED_MODULE_7__),
       _useSound8 = _slicedToArray(_useSound7, 1),
-      playLongBreakEnd = _useSound8[0]; // Init state
+      playLongBreakEnd = _useSound8[0];
+  /**
+   * Requests notification permissions and sends notifications
+   *
+   * @param {*} title Notification title
+   * @param {*} [options={}] Notification options
+   */
 
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null)),
-      _useState2 = _slicedToArray(_useState, 2),
-      playIcon = _useState2[0],
-      setPlayIcon = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
-      _useState4 = _slicedToArray(_useState3, 2),
-      pomoCounter = _useState4[0],
-      setPomoCounter = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("pomo"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      timerState = _useState6[0],
-      setTimerState = _useState6[1];
-
-  var notify = function notify(title) {
+  var notifyMe = function notifyMe(title) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     if (!("Notification" in window)) {
@@ -39368,49 +39389,69 @@ function Timer() {
       });
     }
   };
+  /**
+   * Restarts timer
+   *
+   * @param {*} time Time in minutes for timer
+   * @param {*} autoStart True if timer should autostart
+   * @return {number} timeoutID from setTimeout()
+   */
 
-  var timerHandler = function timerHandler(autoResume, playSound) {
+
+  var simpleRestart = function simpleRestart(time, autoStart) {
+    return setTimeout(function () {
+      restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
+        seconds: time
+      }), autoStart);
+    }, 100);
+  };
+  /**
+   * Returns function that updates timer
+   *
+   * @param {boolean} [autoResume=false] True if timer should autostart
+   * @param {boolean} [sound=false] True if sounds is enabled
+   * @param {boolean} [notify=false] True if notifications is enabled
+   * @return {function} Function that cycles through pomodoro stages and updates timer accordingly
+   */
+
+
+  var timerHandler = function timerHandler() {
+    var autoResume = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var sound = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var notify = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     return function () {
       // Restart timer for current state
       if (timerState === "pomo") {
         if (pomoCounter >= settings.pomoCount) {
-          setTimerState("longBreak");
-          if (playSound) playLongBreakStart();
-          notify("Pomo", {
+          if (sound) playLongBreakStart();
+          if (notify) notifyMe("Pomo", {
             body: "Time for a long break!",
             silent: true
           });
-          setTimeout(function () {
-            restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-              minutes: settings.longBreak
-            }), autoResume);
-          }, 100);
+          setTimerState("longBreak");
+          simpleRestart(settings.longBreak, autoResume);
         } else {
-          setTimerState("shortBreak");
-          if (playSound) playShortBreakStart();
-          notify("Pomo", {
+          if (sound) playShortBreakStart();
+          if (notify) notifyMe("Pomo", {
             body: "Time for a short break!",
             silent: true
           });
-          setTimeout(function () {
-            restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-              minutes: settings.shortBreak
-            }), autoResume);
-          }, 100);
+          setTimerState("shortBreak");
+          simpleRestart(settings.shortBreak, autoResume);
         }
       } else if (timerState === "shortBreak" || timerState === "longBreak") {
         switch (timerState) {
           default:
           case "shortBreak":
-            if (playSound) playShortBreakEnd();
+            if (sound) playShortBreakEnd();
             break;
 
           case "longBreak":
-            if (playSound) playLongBreakEnd();
+            if (sound) playLongBreakEnd();
             break;
         }
 
-        notify("Pomo", {
+        if (notify) notifyMe("Pomo", {
           body: "Time to work!",
           silent: true
         });
@@ -39424,11 +39465,7 @@ function Timer() {
         }
 
         setTimerState("pomo");
-        setTimeout(function () {
-          restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-            minutes: settings.pomoLength
-          }), autoResume);
-        }, 100);
+        simpleRestart(settings.pomoLength, autoResume);
       } // Update play button
 
 
@@ -39436,22 +39473,11 @@ function Timer() {
         setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null));
       }
     };
-  }; // Init timer
-
-
-  var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
-    expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-      minutes: settings.pomoLength
-    }),
-    autoStart: false,
-    onExpire: timerHandler(settings.autoResume, settings.sound)
-  }),
-      seconds = _useTimer.seconds,
-      minutes = _useTimer.minutes,
-      isRunning = _useTimer.isRunning,
-      pause = _useTimer.pause,
-      resume = _useTimer.resume,
-      restart = _useTimer.restart; // Play button handler
+  };
+  /**
+   * Play button handler. Pauses and resumes timer and updates button icon accordingly
+   *
+   */
 
 
   var playHandler = function playHandler() {
@@ -39462,7 +39488,22 @@ function Timer() {
       setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPause, null));
       resume();
     }
-  };
+  }; // Init timer
+
+
+  var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
+    expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
+      seconds: settings.pomoLength
+    }),
+    autoStart: false,
+    onExpire: timerHandler(settings.autoResume, settings.sound, settings.notify)
+  }),
+      seconds = _useTimer.seconds,
+      minutes = _useTimer.minutes,
+      isRunning = _useTimer.isRunning,
+      pause = _useTimer.pause,
+      resume = _useTimer.resume,
+      restart = _useTimer.restart;
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.VStack, {
     align: "center",
@@ -39497,7 +39538,7 @@ function Timer() {
     variant: "circle",
     colorScheme: "gray",
     size: "xl",
-    onClick: timerHandler(false, false)
+    onClick: timerHandler()
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiFastForward, null)))));
 }
 

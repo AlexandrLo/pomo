@@ -9,6 +9,7 @@ export const settingsSlice = createSlice({
     longBreak: 15,
     autoResume: false,
     sound: true,
+    notify: true,
   },
   reducers: {
     updatePomoLength: (state, action) => {
@@ -29,6 +30,9 @@ export const settingsSlice = createSlice({
     toggleSound: (state) => {
       state.sound = !state.sound;
     },
+    toggleNotify: (state) => {
+      state.notify = !state.notify;
+    },
   },
 });
 
@@ -39,6 +43,7 @@ export const {
   updateLongBreak,
   toggleAutoResume,
   toggleSound,
+  toggleNotify,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

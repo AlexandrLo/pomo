@@ -20,6 +20,7 @@ import {
   updateLongBreak,
   toggleAutoResume,
   toggleSound,
+  toggleNotify,
 } from "app/slices/settingsSlice";
 
 function SettingsModal(props) {
@@ -102,6 +103,15 @@ function SettingsModal(props) {
               isChecked={settings.sound}
               onChange={() => {
                 dispatch(toggleSound());
+              }}
+            />
+            <SettingInput
+              id="notify"
+              friendlyName="Notifications"
+              type="switch"
+              isChecked={settings.notify}
+              onChange={() => {
+                dispatch(toggleNotify());
               }}
             />
           </VStack>

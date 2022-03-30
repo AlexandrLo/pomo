@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Text, Container, VStack, HStack, Button } from "@chakra-ui/react";
 import { FiPlay, FiPause, FiFastForward } from "react-icons/fi";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTimer } from "react-timer-hook";
 import { DateTime } from "luxon";
 import useSound from "use-sound";
@@ -15,18 +15,24 @@ function Timer() {
   // Get app settings
   const settings = useSelector((state) => state.settings);
 
+  // Init state
+  const [playIcon, setPlayIcon] = useState(<FiPlay />);
+  const [pomoCounter, setPomoCounter] = useState(1);
+  const [timerState, setTimerState] = useState("pomo");
+
   // Init sounds
   const [playShortBreakStart] = useSound(shortBreakStartSfx);
   const [playShortBreakEnd] = useSound(shortBreakEndSfx);
   const [playLongBreakStart] = useSound(longBreakStartSfx);
   const [playLongBreakEnd] = useSound(longBreakEndSfx);
 
-  // Init state
-  const [playIcon, setPlayIcon] = useState(<FiPlay />);
-  const [pomoCounter, setPomoCounter] = useState(1);
-  const [timerState, setTimerState] = useState("pomo");
-
-  const notify = (title, options = {}) => {
+  /**
+   * Requests notification permissions and sends notifications
+   *
+   * @param {*} title Notification title
+   * @param {*} [options={}] Notification options
+   */
+  const notifyMe = (title, options = {}) => {
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
@@ -40,69 +46,74 @@ function Timer() {
     }
   };
 
-  const timerHandler = (autoResume, playSound) => () => {
-    // Restart timer for current state
-    if (timerState === "pomo") {
-      if (pomoCounter >= settings.pomoCount) {
-        setTimerState("longBreak");
-        if (playSound) playLongBreakStart();
-        notify("Pomo", { body: "Time for a long break!", silent: true });
-        setTimeout(() => {
-          restart(
-            DateTime.now().plus({ minutes: settings.longBreak }),
-            autoResume,
-          );
-        }, 100);
-      } else {
-        setTimerState("shortBreak");
-        if (playSound) playShortBreakStart();
-        notify("Pomo", { body: "Time for a short break!", silent: true });
-        setTimeout(() => {
-          restart(
-            DateTime.now().plus({ minutes: settings.shortBreak }),
-            autoResume,
-          );
-        }, 100);
-      }
-    } else if (timerState === "shortBreak" || timerState === "longBreak") {
-      switch (timerState) {
-        default:
-        case "shortBreak":
-          if (playSound) playShortBreakEnd();
-          break;
-        case "longBreak":
-          if (playSound) playLongBreakEnd();
-          break;
-      }
-      notify("Pomo", { body: "Time to work!", silent: true });
-      if (pomoCounter >= settings.pomoCount) {
-        setPomoCounter(1);
-      } else {
-        setPomoCounter((old) => old + 1);
-      }
-      setTimerState("pomo");
-      setTimeout(() => {
-        restart(
-          DateTime.now().plus({ minutes: settings.pomoLength }),
-          autoResume,
-        );
-      }, 100);
-    }
-
-    // Update play button
-    if (!autoResume) {
-      setPlayIcon(<FiPlay />);
-    }
+  /**
+   * Restarts timer
+   *
+   * @param {*} time Time in minutes for timer
+   * @param {*} autoStart True if timer should autostart
+   * @return {number} timeoutID from setTimeout()
+   */
+  const simpleRestart = (time, autoStart) => {
+    return setTimeout(() => {
+      restart(DateTime.now().plus({ seconds: time }), autoStart);
+    }, 100);
   };
 
-  // Init timer
-  const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
-    expiryTimestamp: DateTime.now().plus({ minutes: settings.pomoLength }),
-    autoStart: false,
-    onExpire: timerHandler(settings.autoResume, settings.sound),
-  });
+  /**
+   * Returns function that updates timer
+   *
+   * @param {boolean} [autoResume=false] True if timer should autostart
+   * @param {boolean} [sound=false] True if sounds is enabled
+   * @param {boolean} [notify=false] True if notifications is enabled
+   * @return {function} Function that cycles through pomodoro stages and updates timer accordingly
+   */
+  const timerHandler = (autoResume = false, sound = false, notify = false) => {
+    return () => {
+      // Restart timer for current state
+      if (timerState === "pomo") {
+        if (pomoCounter >= settings.pomoCount) {
+          if (sound) playLongBreakStart();
+          if (notify)
+            notifyMe("Pomo", { body: "Time for a long break!", silent: true });
+          setTimerState("longBreak");
+          simpleRestart(settings.longBreak, autoResume);
+        } else {
+          if (sound) playShortBreakStart();
+          if (notify)
+            notifyMe("Pomo", { body: "Time for a short break!", silent: true });
+          setTimerState("shortBreak");
+          simpleRestart(settings.shortBreak, autoResume);
+        }
+      } else if (timerState === "shortBreak" || timerState === "longBreak") {
+        switch (timerState) {
+          default:
+          case "shortBreak":
+            if (sound) playShortBreakEnd();
+            break;
+          case "longBreak":
+            if (sound) playLongBreakEnd();
+            break;
+        }
+        if (notify) notifyMe("Pomo", { body: "Time to work!", silent: true });
+        if (pomoCounter >= settings.pomoCount) {
+          setPomoCounter(1);
+        } else {
+          setPomoCounter((old) => old + 1);
+        }
+        setTimerState("pomo");
+        simpleRestart(settings.pomoLength, autoResume);
+      }
+      // Update play button
+      if (!autoResume) {
+        setPlayIcon(<FiPlay />);
+      }
+    };
+  };
 
-  // Play button handler
+  /**
+   * Play button handler. Pauses and resumes timer and updates button icon accordingly
+   *
+   */
   const playHandler = () => {
     if (isRunning) {
       setPlayIcon(<FiPlay />);
@@ -112,6 +123,17 @@ function Timer() {
       resume();
     }
   };
+
+  // Init timer
+  const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
+    expiryTimestamp: DateTime.now().plus({ seconds: settings.pomoLength }),
+    autoStart: false,
+    onExpire: timerHandler(
+      settings.autoResume,
+      settings.sound,
+      settings.notify,
+    ),
+  });
 
   return (
     <Container>
@@ -152,7 +174,7 @@ function Timer() {
             variant="circle"
             colorScheme="gray"
             size="xl"
-            onClick={timerHandler(false, false)}
+            onClick={timerHandler()}
           >
             <FiFastForward />
           </Button>

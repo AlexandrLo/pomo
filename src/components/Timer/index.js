@@ -55,7 +55,7 @@ function Timer() {
    */
   const simpleRestart = (time, autoStart) => {
     return setTimeout(() => {
-      restart(DateTime.now().plus({ seconds: time }), autoStart);
+      restart(DateTime.now().plus({ minutes: time }), autoStart);
     }, 100);
   };
 

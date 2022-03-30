@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   VStack,
   Modal,
@@ -11,8 +12,6 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import SettingInput from "./SettingInput";
-import { useSelector, useDispatch } from "react-redux";
 import {
   updatePomoLength,
   updatePomoCount,
@@ -22,6 +21,8 @@ import {
   toggleSound,
   toggleNotify,
 } from "app/slices/settingsSlice";
+import SettingInput from "./SettingInput";
+import About from "./About";
 
 function SettingsModal(props) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,7 +37,7 @@ function SettingsModal(props) {
       <ModalContent>
         <ModalHeader>Settings</ModalHeader>
         <ModalCloseButton />
-        <ModalBody pb="1.75rem">
+        <ModalBody>
           <VStack
             divider={<StackDivider borderColor={borderColor} />}
             py="1rem"
@@ -115,6 +116,7 @@ function SettingsModal(props) {
               }}
             />
           </VStack>
+          <About />
         </ModalBody>
       </ModalContent>
     </Modal>

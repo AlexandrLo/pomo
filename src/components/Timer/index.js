@@ -126,7 +126,7 @@ function Timer() {
 
   // Init timer
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
-    expiryTimestamp: DateTime.now().plus({ seconds: settings.pomoLength }),
+    expiryTimestamp: DateTime.now().plus({ minutes: settings.pomoLength }),
     autoStart: false,
     onExpire: timerHandler(
       settings.autoResume,

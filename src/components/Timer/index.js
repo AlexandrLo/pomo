@@ -34,7 +34,7 @@ function Timer() {
         if (playSound) playLongBreakStart();
         setTimeout(() => {
           restart(
-            DateTime.now().plus({ seconds: settings.longBreak }),
+            DateTime.now().plus({ minutes: settings.longBreak }),
             autoResume,
           );
         }, 100);
@@ -43,7 +43,7 @@ function Timer() {
         if (playSound) playShortBreakStart();
         setTimeout(() => {
           restart(
-            DateTime.now().plus({ seconds: settings.shortBreak }),
+            DateTime.now().plus({ minutes: settings.shortBreak }),
             autoResume,
           );
         }, 100);
@@ -66,7 +66,7 @@ function Timer() {
       setTimerState("pomo");
       setTimeout(() => {
         restart(
-          DateTime.now().plus({ seconds: settings.pomoLength }),
+          DateTime.now().plus({ minutes: settings.pomoLength }),
           autoResume,
         );
       }, 100);
@@ -80,7 +80,7 @@ function Timer() {
 
   // Init timer
   const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
-    expiryTimestamp: DateTime.now().plus({ seconds: settings.pomoLength }),
+    expiryTimestamp: DateTime.now().plus({ minutes: settings.pomoLength }),
     autoStart: false,
     onExpire: timerHandler(settings.autoResume, settings.sound),
   });

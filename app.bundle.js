@@ -39562,7 +39562,7 @@ function Timer() {
 
   var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
     expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
-      seconds: settings.pomoLength
+      minutes: settings.pomoLength
     }),
     autoStart: false,
     onExpire: timerHandler(settings.autoResume, settings.sound, settings.notify)

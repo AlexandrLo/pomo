@@ -39353,6 +39353,22 @@ function Timer() {
       timerState = _useState6[0],
       setTimerState = _useState6[1];
 
+  var notify = function notify(title) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      new Notification(title, options);
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          new Notification(title, options);
+        }
+      });
+    }
+  };
+
   var timerHandler = function timerHandler(autoResume, playSound) {
     return function () {
       // Restart timer for current state
@@ -39360,6 +39376,10 @@ function Timer() {
         if (pomoCounter >= settings.pomoCount) {
           setTimerState("longBreak");
           if (playSound) playLongBreakStart();
+          notify("Pomo", {
+            body: "Time for a long break!",
+            silent: true
+          });
           setTimeout(function () {
             restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
               minutes: settings.longBreak
@@ -39368,6 +39388,10 @@ function Timer() {
         } else {
           setTimerState("shortBreak");
           if (playSound) playShortBreakStart();
+          notify("Pomo", {
+            body: "Time for a short break!",
+            silent: true
+          });
           setTimeout(function () {
             restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
               minutes: settings.shortBreak
@@ -39385,6 +39409,11 @@ function Timer() {
             if (playSound) playLongBreakEnd();
             break;
         }
+
+        notify("Pomo", {
+          body: "Time to work!",
+          silent: true
+        });
 
         if (pomoCounter >= settings.pomoCount) {
           setPomoCounter(1);

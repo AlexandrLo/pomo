@@ -26,12 +26,27 @@ function Timer() {
   const [pomoCounter, setPomoCounter] = useState(1);
   const [timerState, setTimerState] = useState("pomo");
 
+  const notify = (title, options = {}) => {
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      new Notification(title, options);
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          new Notification(title, options);
+        }
+      });
+    }
+  };
+
   const timerHandler = (autoResume, playSound) => () => {
     // Restart timer for current state
     if (timerState === "pomo") {
       if (pomoCounter >= settings.pomoCount) {
         setTimerState("longBreak");
         if (playSound) playLongBreakStart();
+        notify("Pomo", { body: "Time for a long break!", silent: true });
         setTimeout(() => {
           restart(
             DateTime.now().plus({ minutes: settings.longBreak }),
@@ -41,6 +56,7 @@ function Timer() {
       } else {
         setTimerState("shortBreak");
         if (playSound) playShortBreakStart();
+        notify("Pomo", { body: "Time for a short break!", silent: true });
         setTimeout(() => {
           restart(
             DateTime.now().plus({ minutes: settings.shortBreak }),
@@ -58,6 +74,7 @@ function Timer() {
           if (playSound) playLongBreakEnd();
           break;
       }
+      notify("Pomo", { body: "Time to work!", silent: true });
       if (pomoCounter >= settings.pomoCount) {
         setPomoCounter(1);
       } else {

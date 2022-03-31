@@ -6,10 +6,11 @@ import { useTimer } from "react-timer-hook";
 import { DateTime } from "luxon";
 import useSound from "use-sound";
 
-import shortBreakStartSfx from "assets/short_break_start.mp3";
-import shortBreakEndSfx from "assets/short_break_end.mp3";
-import longBreakStartSfx from "assets/long_break_start.mp3";
-import longBreakEndSfx from "assets/long_break_end.mp3";
+import shortBreakStartSfx from "assets/short_break_start.m4a";
+import shortBreakEndSfx from "assets/short_break_end.m4a";
+import longBreakStartSfx from "assets/long_break_start.m4a";
+import longBreakEndSfx from "assets/long_break_end.m4a";
+import startSfx from "assets/start.m4a";
 
 function Timer() {
   // Get app settings
@@ -25,6 +26,7 @@ function Timer() {
   const [playShortBreakEnd] = useSound(shortBreakEndSfx);
   const [playLongBreakStart] = useSound(longBreakStartSfx);
   const [playLongBreakEnd] = useSound(longBreakEndSfx);
+  const [playStart] = useSound(startSfx);
 
   /**
    * Requests notification permissions and sends notifications
@@ -121,6 +123,7 @@ function Timer() {
     } else {
       setPlayIcon(<FiPause />);
       resume();
+      playStart();
     }
   };
 

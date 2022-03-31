@@ -29,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(mp3)$/i,
+        test: /\.(mp3|m4a)$/i,
         type: "asset/resource",
       },
       {

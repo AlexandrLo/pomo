@@ -22,7 +22,6 @@ import {
   toggleNotify,
 } from "app/slices/settingsSlice";
 import SettingInput from "./SettingInput";
-import About from "./About";
 
 function SettingsModal(props) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -37,7 +36,7 @@ function SettingsModal(props) {
       <ModalContent>
         <ModalHeader>Settings</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody p="1.5rem">
           <VStack
             divider={<StackDivider borderColor={borderColor} />}
             py="1rem"
@@ -116,7 +115,6 @@ function SettingsModal(props) {
               }}
             />
           </VStack>
-          <About />
         </ModalBody>
       </ModalContent>
     </Modal>

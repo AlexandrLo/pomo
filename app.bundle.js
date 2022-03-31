@@ -39063,75 +39063,6 @@ var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistStore)(stor
 
 /***/ }),
 
-/***/ "./src/components/Settings/About.js":
-/*!******************************************!*\
-  !*** ./src/components/Settings/About.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/hooks/dist/chakra-ui-hooks.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/chakra-ui-modal.esm.js");
-
-
-
-function About() {
-  var _useDisclosure = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.useDisclosure)(),
-      isOpen = _useDisclosure.isOpen,
-      onOpen = _useDisclosure.onOpen,
-      onClose = _useDisclosure.onClose;
-
-  var borderColor = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.useColorModeValue)("gray.100", "whiteAlpha.300");
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Box, {
-    w: "100%",
-    textAlign: "center",
-    py: "1rem"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    fontSize: "xs",
-    color: "gray.400",
-    onClick: onOpen
-  }, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Modal, {
-    isOpen: isOpen,
-    onClose: onClose
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ModalOverlay, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ModalContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ModalHeader, null, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ModalCloseButton, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ModalBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.VStack, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Heading, {
-    size: "md"
-  }, "Pomo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Text, null, "A pomodoro timer built with React"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.VStack, {
-    border: "1px",
-    borderRadius: "md",
-    borderColor: borderColor,
-    overflow: "clip",
-    w: "100%",
-    p: "1rem",
-    fontSize: "sm"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Text, {
-    fontWeight: "500"
-  }, "Credits"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.SimpleGrid, {
-    columns: 2,
-    spacing: "0.5rem"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.VStack, {
-    align: "end"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Text, null, "Created by"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Text, null, "Sound effects by")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.VStack, {
-    align: "start"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    color: "teal.500",
-    href: "https://github.com/AlexandrLo"
-  }, "Alexandr Lo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    color: "teal.500",
-    href: "https://soundimage.org/"
-  }, "Eric Matyas")))))))));
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
-
-/***/ }),
-
 /***/ "./src/components/Settings/SettingInput.js":
 /*!*************************************************!*\
   !*** ./src/components/Settings/SettingInput.js ***!
@@ -39210,13 +39141,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/chakra-ui-modal.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/chakra-ui-modal.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
 /* harmony import */ var app_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/slices/settingsSlice */ "./src/app/slices/settingsSlice.js");
 /* harmony import */ var _SettingInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingInput */ "./src/components/Settings/SettingInput.js");
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./About */ "./src/components/Settings/About.js");
-
 
 
 
@@ -39224,17 +39153,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function SettingsModal(props) {
-  var _useColorMode = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.useColorMode)(),
+  var _useColorMode = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.useColorMode)(),
       colorMode = _useColorMode.colorMode,
       toggleColorMode = _useColorMode.toggleColorMode;
 
-  var borderColor = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.useColorModeValue)("gray.100", "whiteAlpha.300");
+  var borderColor = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.useColorModeValue)("gray.100", "whiteAlpha.300");
   var settings = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.settings;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Modal, props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.ModalOverlay, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.ModalContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.ModalHeader, null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.ModalCloseButton, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.ModalBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.VStack, {
-    divider: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.StackDivider, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Modal, props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.ModalOverlay, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.ModalContent, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.ModalCloseButton, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.ModalBody, {
+    p: "1.5rem"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.VStack, {
+    divider: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.StackDivider, {
       borderColor: borderColor
     }),
     py: "1rem",
@@ -39302,7 +39233,7 @@ function SettingsModal(props) {
     onChange: function onChange() {
       dispatch((0,app_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.toggleNotify)());
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_About__WEBPACK_IMPORTED_MODULE_4__["default"], null))));
+  })))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsModal);
@@ -39362,18 +39293,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chakra-ui-button.esm.js");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chakra-ui-button.esm.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
 /* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
 /* harmony import */ var use_sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! use-sound */ "./node_modules/use-sound/dist/use-sound.esm.js");
-/* harmony import */ var assets_short_break_start_mp3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! assets/short_break_start.mp3 */ "./src/assets/short_break_start.mp3");
-/* harmony import */ var assets_short_break_end_mp3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! assets/short_break_end.mp3 */ "./src/assets/short_break_end.mp3");
-/* harmony import */ var assets_long_break_start_mp3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! assets/long_break_start.mp3 */ "./src/assets/long_break_start.mp3");
-/* harmony import */ var assets_long_break_end_mp3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! assets/long_break_end.mp3 */ "./src/assets/long_break_end.mp3");
+/* harmony import */ var assets_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! assets/short_break_start.m4a */ "./src/assets/short_break_start.m4a");
+/* harmony import */ var assets_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! assets/short_break_end.m4a */ "./src/assets/short_break_end.m4a");
+/* harmony import */ var assets_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! assets/long_break_start.m4a */ "./src/assets/long_break_start.m4a");
+/* harmony import */ var assets_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! assets/long_break_end.m4a */ "./src/assets/long_break_end.m4a");
+/* harmony import */ var assets_start_m4a__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! assets/start.m4a */ "./src/assets/start.m4a");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -39398,13 +39330,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Timer() {
   // Get app settings
   var settings = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.settings;
   }); // Init state
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null)),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_9__.FiPlay, null)),
       _useState2 = _slicedToArray(_useState, 2),
       playIcon = _useState2[0],
       setPlayIcon = _useState2[1];
@@ -39420,21 +39353,25 @@ function Timer() {
       setTimerState = _useState6[1]; // Init sounds
 
 
-  var _useSound = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_short_break_start_mp3__WEBPACK_IMPORTED_MODULE_4__),
+  var _useSound = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_4__),
       _useSound2 = _slicedToArray(_useSound, 1),
       playShortBreakStart = _useSound2[0];
 
-  var _useSound3 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_short_break_end_mp3__WEBPACK_IMPORTED_MODULE_5__),
+  var _useSound3 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_5__),
       _useSound4 = _slicedToArray(_useSound3, 1),
       playShortBreakEnd = _useSound4[0];
 
-  var _useSound5 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_long_break_start_mp3__WEBPACK_IMPORTED_MODULE_6__),
+  var _useSound5 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_6__),
       _useSound6 = _slicedToArray(_useSound5, 1),
       playLongBreakStart = _useSound6[0];
 
-  var _useSound7 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_long_break_end_mp3__WEBPACK_IMPORTED_MODULE_7__),
+  var _useSound7 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_7__),
       _useSound8 = _slicedToArray(_useSound7, 1),
       playLongBreakEnd = _useSound8[0];
+
+  var _useSound9 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_start_m4a__WEBPACK_IMPORTED_MODULE_8__),
+      _useSound10 = _slicedToArray(_useSound9, 1),
+      playStart = _useSound10[0];
   /**
    * Requests notification permissions and sends notifications
    *
@@ -39469,7 +39406,7 @@ function Timer() {
 
   var simpleRestart = function simpleRestart(time, autoStart) {
     return setTimeout(function () {
-      restart(luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
+      restart(luxon__WEBPACK_IMPORTED_MODULE_10__.DateTime.now().plus({
         minutes: time
       }), autoStart);
     }, 100);
@@ -39539,7 +39476,7 @@ function Timer() {
 
 
       if (!autoResume) {
-        setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null));
+        setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_9__.FiPlay, null));
       }
     };
   };
@@ -39551,17 +39488,18 @@ function Timer() {
 
   var playHandler = function playHandler() {
     if (isRunning) {
-      setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPlay, null));
+      setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_9__.FiPlay, null));
       pause();
     } else {
-      setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiPause, null));
+      setPlayIcon( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_9__.FiPause, null));
       resume();
+      playStart();
     }
   }; // Init timer
 
 
   var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
-    expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.now().plus({
+    expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_10__.DateTime.now().plus({
       minutes: settings.pomoLength
     }),
     autoStart: false,
@@ -39574,11 +39512,11 @@ function Timer() {
       resume = _useTimer.resume,
       restart = _useTimer.restart;
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.VStack, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Container, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.VStack, {
     align: "center",
     justify: "center",
     minH: "100vh"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Text, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Text, {
     fontSize: "xl",
     fontWeight: "800",
     textTransform: "uppercase",
@@ -39595,20 +39533,20 @@ function Timer() {
           return "green.600";
       }
     }
-  }, timerState === "pomo" && "Pomodoro ".concat(pomoCounter), timerState === "shortBreak" && "Short break", timerState === "longBreak" && "Long break"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Text, {
+  }, timerState === "pomo" && "Pomodoro ".concat(pomoCounter), timerState === "shortBreak" && "Short break", timerState === "longBreak" && "Long break"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Text, {
     fontSize: "8xl",
     fontWeight: "700"
-  }, luxon__WEBPACK_IMPORTED_MODULE_9__.DateTime.fromFormat("".concat(minutes, ":").concat(seconds), "m:s").toFormat("m:ss")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.HStack, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, {
+  }, luxon__WEBPACK_IMPORTED_MODULE_10__.DateTime.fromFormat("".concat(minutes, ":").concat(seconds), "m:s").toFormat("m:ss")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.HStack, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Button, {
     variant: "circle",
     colorScheme: "blue",
     size: "xl",
     onClick: playHandler
-  }, playIcon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, {
+  }, playIcon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Button, {
     variant: "circle",
     colorScheme: "gray",
     size: "xl",
     onClick: timerHandler()
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiFastForward, null)))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_9__.FiFastForward, null)))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timer);
@@ -92016,47 +91954,58 @@ module.exports = __webpack_require__.p + "eca8373663457fe3f95c.woff2";
 
 /***/ }),
 
-/***/ "./src/assets/long_break_end.mp3":
+/***/ "./src/assets/long_break_end.m4a":
 /*!***************************************!*\
-  !*** ./src/assets/long_break_end.mp3 ***!
+  !*** ./src/assets/long_break_end.m4a ***!
   \***************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "cba978ed41ff51952be7.mp3";
+module.exports = __webpack_require__.p + "5884ce7f0d080158d784.m4a";
 
 /***/ }),
 
-/***/ "./src/assets/long_break_start.mp3":
+/***/ "./src/assets/long_break_start.m4a":
 /*!*****************************************!*\
-  !*** ./src/assets/long_break_start.mp3 ***!
+  !*** ./src/assets/long_break_start.m4a ***!
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "78a164c4e8e060ef4ac1.mp3";
+module.exports = __webpack_require__.p + "56b15e45b273715da04d.m4a";
 
 /***/ }),
 
-/***/ "./src/assets/short_break_end.mp3":
+/***/ "./src/assets/short_break_end.m4a":
 /*!****************************************!*\
-  !*** ./src/assets/short_break_end.mp3 ***!
+  !*** ./src/assets/short_break_end.m4a ***!
   \****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "116a67902d337c4e39d8.mp3";
+module.exports = __webpack_require__.p + "0016f96dc2c9bb39182a.m4a";
 
 /***/ }),
 
-/***/ "./src/assets/short_break_start.mp3":
+/***/ "./src/assets/short_break_start.m4a":
 /*!******************************************!*\
-  !*** ./src/assets/short_break_start.mp3 ***!
+  !*** ./src/assets/short_break_start.m4a ***!
   \******************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "17df9346847cc80f5e81.mp3";
+module.exports = __webpack_require__.p + "fe3a8cfb298d17d49de7.m4a";
+
+/***/ }),
+
+/***/ "./src/assets/start.m4a":
+/*!******************************!*\
+  !*** ./src/assets/start.m4a ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "7f2d29af67fe760b28f7.m4a";
 
 /***/ }),
 

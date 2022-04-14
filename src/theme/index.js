@@ -3,8 +3,8 @@ import "@fontsource/inter/variable.css";
 
 const theme = extendTheme({
   config: {
-    initialColorMode: "light",
-    useSystemColorMode: true,
+    initialColorMode: "system",
+    useSystemColorMode: false,
   },
   fonts: {
     heading: "InterVariable",

@@ -39041,7 +39041,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var persistConfig = {
-  key: "root",
+  key: "pomo",
   storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_2__["default"]
 };
 var settingsPersistedReducer = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistReducer)(persistConfig, _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_0__["default"]);

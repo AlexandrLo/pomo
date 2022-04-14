@@ -39553,6 +39553,37 @@ function Timer() {
 
 /***/ }),
 
+/***/ "./src/customLocalStorageManager.js":
+/*!******************************************!*\
+  !*** ./src/customLocalStorageManager.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customLocalStorageManager": () => (/* binding */ customLocalStorageManager)
+/* harmony export */ });
+var hasSupport = function hasSupport() {
+  return typeof Storage !== "undefined";
+};
+
+var storageKey = "pomo-color-mode";
+var customLocalStorageManager = {
+  get: function get(init) {
+    if (!hasSupport()) return init;
+    var value = localStorage.getItem(storageKey);
+    return value !== null && value !== void 0 ? value : init;
+  },
+  set: function set(value) {
+    if (!hasSupport()) return;
+    localStorage.setItem(storageKey, value);
+  },
+  type: "localStorage"
+};
+
+/***/ }),
+
 /***/ "./src/theme/index.js":
 /*!****************************!*\
   !*** ./src/theme/index.js ***!
@@ -39577,8 +39608,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.extendTheme)({
   config: {
-    initialColorMode: "light",
-    useSystemColorMode: true
+    initialColorMode: "system",
+    useSystemColorMode: false
   },
   fonts: {
     heading: "InterVariable",
@@ -106213,12 +106244,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
 /* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
 /* harmony import */ var app_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/store */ "./src/app/store.js");
 /* harmony import */ var redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/integration/react */ "./node_modules/redux-persist/es/integration/react.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! customLocalStorageManager */ "./src/customLocalStorageManager.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App */ "./src/App.js");
+
 
 
 
@@ -106232,11 +106265,12 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPOR
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_5__.PersistGate, {
   loading: null,
   persistor: app_store__WEBPACK_IMPORTED_MODULE_4__.persistor
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.ChakraProvider, {
-  theme: theme__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.ColorModeScript, {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.ChakraProvider, {
+  theme: theme__WEBPACK_IMPORTED_MODULE_3__["default"],
+  colorModeManager: customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__.customLocalStorageManager
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.ColorModeScript, {
   initialColorMode: theme__WEBPACK_IMPORTED_MODULE_3__["default"].config.initialColorMode
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_6__["default"], null))))), document.getElementById("root"));
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_7__["default"], null))))), document.getElementById("root"));
 })();
 
 /******/ })()

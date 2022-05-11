@@ -39606,141 +39606,6 @@ var _timerSlice$actions = timerSlice.actions,
 
 /***/ }),
 
-/***/ "./src/theme/colors.js":
-/*!*****************************!*\
-  !*** ./src/theme/colors.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  white: "rgba(255, 255, 255, 1)",
-  black: "rgba(0, 0, 0, 1)",
-  gray: {
-    950: "rgba(13, 13, 13, 1)",
-    900: "rgba(26, 26, 26, 1)",
-    800: "rgba(51, 51, 51, 1)",
-    700: "rgba(77, 77, 77, 1)",
-    600: "rgba(102, 102, 102, 1)",
-    500: "rgba(128, 128, 128, 1)",
-    400: "rgba(153, 153, 153, 1)",
-    300: "rgba(179, 179, 179, 1)",
-    200: "rgba(204, 204, 204, 1)",
-    100: "rgba(230, 230, 230, 1)",
-    50: "rgba(242, 242, 242, 1)"
-  },
-  red: {
-    950: "rgba(13, 4, 4, 1)",
-    900: "rgba(71, 21, 21, 1)",
-    800: "rgba(117, 35, 35, 1)",
-    700: "rgba(163, 49, 49, 1)",
-    600: "rgba(209, 63, 63, 1)",
-    500: "rgba(255, 76, 76, 1)",
-    400: "rgba(255, 110, 110, 1)",
-    300: "rgba(255, 143, 143, 1)",
-    200: "rgba(255, 176, 176, 1)",
-    100: "rgba(255, 209, 209, 1)",
-    50: "rgba(255, 242, 242, 1)"
-  },
-  green: {
-    950: "rgba(4, 13, 6, 1)",
-    900: "rgba(20, 64, 29, 1)",
-    800: "rgba(33, 102, 48, 1)",
-    700: "rgba(46, 140, 67, 1)",
-    600: "rgba(61, 178, 87, 1)",
-    500: "rgba(77, 218, 108, 1)",
-    400: "rgba(105, 224, 132, 1)",
-    300: "rgba(137, 232, 158, 1)",
-    200: "rgba(170, 240, 185, 1)",
-    100: "rgba(205, 247, 215, 1)",
-    50: "rgba(242, 255, 245, 1)"
-  },
-  blue: {
-    950: "rgba(4, 9, 13, 1)",
-    900: "rgba(21, 48, 71, 1)",
-    800: "rgba(35, 79, 117, 1)",
-    700: "rgba(49, 110, 163, 1)",
-    600: "rgba(63, 141, 209, 1)",
-    500: "rgba(76, 172, 255, 1)",
-    400: "rgba(110, 187, 255, 1)",
-    300: "rgba(143, 203, 255, 1)",
-    200: "rgba(176, 218, 255, 1)",
-    100: "rgba(209, 234, 255, 1)",
-    50: "rgba(242, 249, 255, 1)"
-  },
-  whiteAlpha: {
-    950: "rgba(255, 255, 255, 1)",
-    900: "rgba(255, 255, 255, 0.90)",
-    800: "rgba(255, 255, 255, 0.81)",
-    700: "rgba(255, 255, 255, 0.71)",
-    600: "rgba(255, 255, 255, 0.62)",
-    500: "rgba(255, 255, 255, 0.52)",
-    400: "rgba(255, 255, 255, 0.43)",
-    300: "rgba(255, 255, 255, 0.33)",
-    200: "rgba(255, 255, 255, 0.24)",
-    100: "rgba(255, 255, 255, 0.15)",
-    50: "rgba(255, 255, 255, 0.05)"
-  },
-  blackAlpha: {
-    950: "rgba(0, 0, 0, 1)",
-    900: "rgba(0, 0, 0, 0.90)",
-    800: "rgba(0, 0, 0, 0.81)",
-    700: "rgba(0, 0, 0, 0.71)",
-    600: "rgba(0, 0, 0, 0.62)",
-    500: "rgba(0, 0, 0, 0.52)",
-    400: "rgba(0, 0, 0, 0.43)",
-    300: "rgba(0, 0, 0, 0.33)",
-    200: "rgba(0, 0, 0, 0.24)",
-    100: "rgba(0, 0, 0, 0.15)",
-    50: "rgba(0, 0, 0, 0.05)"
-  },
-  redAlpha: {
-    950: "rgba(255, 76, 76, 1)",
-    900: "rgba(255, 76, 76, 0.90)",
-    800: "rgba(255, 76, 76, 0.81)",
-    700: "rgba(255, 76, 76, 0.71)",
-    600: "rgba(255, 76, 76, 0.62)",
-    500: "rgba(255, 76, 76, 0.52)",
-    400: "rgba(255, 76, 76, 0.43)",
-    300: "rgba(255, 76, 76, 0.33)",
-    200: "rgba(255, 76, 76, 0.24)",
-    100: "rgba(255, 76, 76, 0.15)",
-    50: "rgba(255, 76, 76, 0.05)"
-  },
-  greenAlpha: {
-    950: "rgba(77, 218, 108, 1)",
-    900: "rgba(77, 218, 108, 0.90)",
-    800: "rgba(77, 218, 108, 0.81)",
-    700: "rgba(77, 218, 108, 0.71)",
-    600: "rgba(77, 218, 108, 0.62)",
-    500: "rgba(77, 218, 108, 0.52)",
-    400: "rgba(77, 218, 108, 0.43)",
-    300: "rgba(77, 218, 108, 0.33)",
-    200: "rgba(77, 218, 108, 0.24)",
-    100: "rgba(77, 218, 108, 0.15)",
-    50: "rgba(77, 218, 108, 0.05)"
-  },
-  blueAlpha: {
-    950: "rgba(76, 172, 255, 1)",
-    900: "rgba(76, 172, 255, 0.90)",
-    800: "rgba(76, 172, 255, 0.81)",
-    700: "rgba(76, 172, 255, 0.71)",
-    600: "rgba(76, 172, 255, 0.62)",
-    500: "rgba(76, 172, 255, 0.52)",
-    400: "rgba(76, 172, 255, 0.43)",
-    300: "rgba(76, 172, 255, 0.33)",
-    200: "rgba(76, 172, 255, 0.24)",
-    100: "rgba(76, 172, 255, 0.15)",
-    50: "rgba(76, 172, 255, 0.05)"
-  }
-});
-
-/***/ }),
-
 /***/ "./src/theme/components/Button.js":
 /*!****************************************!*\
   !*** ./src/theme/components/Button.js ***!
@@ -39791,18 +39656,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
-/* harmony import */ var _chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/theme-tools */ "./node_modules/@chakra-ui/theme-tools/dist/chakra-ui-theme-tools.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+/* harmony import */ var _chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/theme-tools */ "./node_modules/@chakra-ui/theme-tools/dist/chakra-ui-theme-tools.esm.js");
 /* harmony import */ var _fontsource_inter_variable_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fontsource/inter/variable.css */ "./node_modules/@fontsource/inter/variable.css");
 /* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Button */ "./src/theme/components/Button.js");
-/* harmony import */ var _colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colors */ "./src/theme/colors.js");
 
 
 
+ // import colors from "./colors";
 
-
-var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.extendTheme)({
-  colors: _colors__WEBPACK_IMPORTED_MODULE_2__["default"],
+var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.extendTheme)({
+  // colors,
   components: {
     Button: _components_Button__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -39819,17 +39683,17 @@ var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.extendTheme)({
       return {
         body: {
           fontFamily: "body",
-          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("black", "white")(props),
-          bg: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("white", "gray.800")(props),
+          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_3__.mode)("black", "white")(props),
+          bg: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_3__.mode)("white", "gray.800")(props),
           transitionProperty: "background-color",
           transitionDuration: "normal",
           lineHeight: "base"
         },
         "*::placeholder": {
-          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("gray.400", "whiteAlpha.400")(props)
+          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_3__.mode)("gray.400", "whiteAlpha.400")(props)
         },
         "*, *::before, &::after": {
-          borderColor: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("gray.200", "whiteAlpha.300")(props),
+          borderColor: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_3__.mode)("gray.200", "whiteAlpha.300")(props),
           WebkitTapHighlightColor: "transparent",
           wordWrap: "break-word"
         }

@@ -4,10 +4,10 @@ import { mode } from "@chakra-ui/theme-tools";
 import "@fontsource/inter/variable.css";
 
 import Button from "./components/Button";
-import colors from "./colors";
+// import colors from "./colors";
 
 const theme = extendTheme({
-  colors,
+  // colors,
   components: {
     Button,
   },

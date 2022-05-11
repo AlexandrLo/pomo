@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint --ext .jsx,.js src/"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",

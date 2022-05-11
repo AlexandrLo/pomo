@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import settingsReducer from "./slices/settingsSlice";
 import {
   persistStore,
   persistReducer,
@@ -12,6 +11,9 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import settingsReducer from "./slices/settingsSlice";
+import timerReducer from "./slices/timerSlice";
+
 const persistConfig = {
   key: "pomo",
   storage,
@@ -22,6 +24,7 @@ const settingsPersistedReducer = persistReducer(persistConfig, settingsReducer);
 const store = configureStore({
   reducer: {
     settings: settingsPersistedReducer,
+    timer: timerReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

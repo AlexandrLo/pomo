@@ -6,7 +6,7 @@ import theme from "theme";
 import { store, persistor } from "store";
 import { PersistGate } from "redux-persist/integration/react";
 
-import { customLocalStorageManager } from "customLocalStorageManager";
+import { customLocalStorageManager } from "utils/customLocalStorageManager";
 import App from "./App";
 
 ReactDOM.render(

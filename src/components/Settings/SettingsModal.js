@@ -1,27 +1,29 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+
 import {
-  VStack,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
   ModalBody,
   ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   StackDivider,
+  VStack,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  updatePomoLength,
-  updatePomoCount,
-  updateShortBreak,
-  updateLongBreak,
-  toggleAutoResume,
-  toggleSound,
-  toggleNotify,
-} from "store/slices/settingsSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import SettingInput from "./SettingInput";
+import {
+  toggleAutoResume,
+  toggleNotify,
+  toggleSound,
+  updateLongBreak,
+  updatePomoCount,
+  updatePomoLength,
+  updateShortBreak,
+} from "store/slices/settingsSlice";
 
 function SettingsModal(props) {
   const { colorMode, toggleColorMode } = useColorMode();

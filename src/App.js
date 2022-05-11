@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Box } from "@chakra-ui/react";
+
 import Settings from "./components/Settings";
 import Timer from "./components/Timer";
 

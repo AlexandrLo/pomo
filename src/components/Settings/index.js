@@ -1,6 +1,8 @@
 import React from "react";
-import { Button, useDisclosure } from "@chakra-ui/react";
+
 import { FiSettings } from "react-icons/fi";
+import { Button, useDisclosure } from "@chakra-ui/react";
+
 import SettingsModal from "./SettingsModal";
 
 function Settings() {

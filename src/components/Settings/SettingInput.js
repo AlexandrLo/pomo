@@ -1,14 +1,15 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 import {
-  Switch,
   FormControl,
   FormLabel,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
+  Switch,
 } from "@chakra-ui/react";
 
 function SettingInput(props) {

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Text, Container, VStack, HStack, Button } from "@chakra-ui/react";
-import { FiPlay, FiPause, FiFastForward } from "react-icons/fi";
-import { useSelector } from "react-redux";
-import { useTimer } from "react-timer-hook";
-import { DateTime } from "luxon";
-import useSound from "use-sound";
 
-import shortBreakStartSfx from "assets/sounds/short_break_start.m4a";
-import shortBreakEndSfx from "assets/sounds/short_break_end.m4a";
-import longBreakStartSfx from "assets/sounds/long_break_start.m4a";
+import { DateTime } from "luxon";
+import { useSelector } from "react-redux";
+import useSound from "use-sound";
+import { useTimer } from "react-timer-hook";
+import { Button, Container, HStack, Text, VStack } from "@chakra-ui/react";
+import { FiFastForward, FiPause, FiPlay } from "react-icons/fi";
+
 import longBreakEndSfx from "assets/sounds/long_break_end.m4a";
+import longBreakStartSfx from "assets/sounds/long_break_start.m4a";
+import shortBreakEndSfx from "assets/sounds/short_break_end.m4a";
+import shortBreakStartSfx from "assets/sounds/short_break_start.m4a";
 import startSfx from "assets/sounds/start.m4a";
 
 function Timer() {

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import theme from "theme";
-import { store, persistor } from "app/store";
+import { store, persistor } from "store";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { customLocalStorageManager } from "customLocalStorageManager";

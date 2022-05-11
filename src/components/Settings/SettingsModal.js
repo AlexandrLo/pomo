@@ -20,7 +20,7 @@ import {
   toggleAutoResume,
   toggleSound,
   toggleNotify,
-} from "app/slices/settingsSlice";
+} from "store/slices/settingsSlice";
 import SettingInput from "./SettingInput";
 
 function SettingsModal(props) {

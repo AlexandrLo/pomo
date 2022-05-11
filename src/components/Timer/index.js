@@ -6,11 +6,11 @@ import { useTimer } from "react-timer-hook";
 import { DateTime } from "luxon";
 import useSound from "use-sound";
 
-import shortBreakStartSfx from "assets/short_break_start.m4a";
-import shortBreakEndSfx from "assets/short_break_end.m4a";
-import longBreakStartSfx from "assets/long_break_start.m4a";
-import longBreakEndSfx from "assets/long_break_end.m4a";
-import startSfx from "assets/start.m4a";
+import shortBreakStartSfx from "assets/sounds/short_break_start.m4a";
+import shortBreakEndSfx from "assets/sounds/short_break_end.m4a";
+import longBreakStartSfx from "assets/sounds/long_break_start.m4a";
+import longBreakEndSfx from "assets/sounds/long_break_end.m4a";
+import startSfx from "assets/sounds/start.m4a";
 
 function Timer() {
   // Get app settings

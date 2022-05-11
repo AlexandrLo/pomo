@@ -18,5 +18,12 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
+    "sort-imports": [
+      "error",
+      {
+        memberSyntaxSortOrder: ["none", "all", "single", "multiple"],
+        allowSeparatedGroups: true,
+      },
+    ],
   },
 };

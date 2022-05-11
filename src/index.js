@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+import "focus-visible/dist/focus-visible";
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider as ReduxProvider } from "react-redux";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
-import theme from "theme";
-import { store, persistor } from "store";
-import { PersistGate } from "redux-persist/integration/react";
 
-import { customLocalStorageManager } from "utils/customLocalStorageManager";
 import App from "./App";
+import { customLocalStorageManager } from "utils/customLocalStorageManager";
+import theme from "theme";
+import { persistor, store } from "store";
 
 ReactDOM.render(
   <React.StrictMode>

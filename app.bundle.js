@@ -39027,12 +39027,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/modal/dist/chakra-ui-modal.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-/* harmony import */ var store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! store/slices/settingsSlice */ "./src/store/slices/settingsSlice.js");
-/* harmony import */ var _SettingInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingInput */ "./src/components/Settings/SettingInput.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _SettingInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SettingInput */ "./src/components/Settings/SettingInput.js");
+/* harmony import */ var store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! store/slices/settingsSlice */ "./src/store/slices/settingsSlice.js");
 
 
 
@@ -39062,63 +39062,63 @@ function SettingsModal(props) {
     borderRadius: "md",
     borderColor: borderColor,
     overflow: "clip"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "dark-mode-switch",
     friendlyName: "Enable dark mode",
     type: "switch",
     isChecked: colorMode === "dark",
     onChange: toggleColorMode
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "pomo-length",
     friendlyName: "Pomodoro length",
     value: settings.pomoLength,
     onChange: function onChange(e) {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.updatePomoLength)(e));
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.updatePomoLength)(e));
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "pomo-count",
     friendlyName: "Pomodoros until long break",
     value: settings.pomoCount,
     onChange: function onChange(e) {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.updatePomoCount)(e));
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.updatePomoCount)(e));
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "short-break-length",
     friendlyName: "Short break length",
     value: settings.shortBreak,
     onChange: function onChange(e) {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.updateShortBreak)(e));
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.updateShortBreak)(e));
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "long-break-length",
     friendlyName: "Long break length",
     value: settings.longBreak,
     onChange: function onChange(e) {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.updateLongBreak)(e));
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.updateLongBreak)(e));
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "auto-resume",
     friendlyName: "Auto resume timer",
     type: "switch",
     isChecked: settings.autoResume,
     onChange: function onChange() {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.toggleAutoResume)());
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.toggleAutoResume)());
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "sound",
     friendlyName: "Sound",
     type: "switch",
     isChecked: settings.sound,
     onChange: function onChange() {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.toggleSound)());
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.toggleSound)());
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SettingInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "notify",
     friendlyName: "Notifications",
     type: "switch",
     isChecked: settings.notify,
     onChange: function onChange() {
-      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__.toggleNotify)());
+      dispatch((0,store_slices_settingsSlice__WEBPACK_IMPORTED_MODULE_3__.toggleNotify)());
     }
   })))));
 }
@@ -39139,9 +39139,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/hooks/dist/chakra-ui-hooks.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chakra-ui-button.esm.js");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
 /* harmony import */ var _SettingsModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingsModal */ "./src/components/Settings/SettingsModal.js");
 
 
@@ -39180,18 +39180,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var use_sound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! use-sound */ "./node_modules/use-sound/dist/use-sound.esm.js");
+/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
+/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chakra-ui-button.esm.js");
 /* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-timer-hook */ "./node_modules/react-timer-hook/dist/index.js");
-/* harmony import */ var react_timer_hook__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_timer_hook__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
-/* harmony import */ var use_sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! use-sound */ "./node_modules/use-sound/dist/use-sound.esm.js");
-/* harmony import */ var assets_sounds_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! assets/sounds/short_break_start.m4a */ "./src/assets/sounds/short_break_start.m4a");
-/* harmony import */ var assets_sounds_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! assets/sounds/short_break_end.m4a */ "./src/assets/sounds/short_break_end.m4a");
-/* harmony import */ var assets_sounds_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! assets/sounds/long_break_start.m4a */ "./src/assets/sounds/long_break_start.m4a");
-/* harmony import */ var assets_sounds_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! assets/sounds/long_break_end.m4a */ "./src/assets/sounds/long_break_end.m4a");
+/* harmony import */ var assets_sounds_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! assets/sounds/long_break_end.m4a */ "./src/assets/sounds/long_break_end.m4a");
+/* harmony import */ var assets_sounds_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! assets/sounds/long_break_start.m4a */ "./src/assets/sounds/long_break_start.m4a");
+/* harmony import */ var assets_sounds_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! assets/sounds/short_break_end.m4a */ "./src/assets/sounds/short_break_end.m4a");
+/* harmony import */ var assets_sounds_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! assets/sounds/short_break_start.m4a */ "./src/assets/sounds/short_break_start.m4a");
 /* harmony import */ var assets_sounds_start_m4a__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! assets/sounds/start.m4a */ "./src/assets/sounds/start.m4a");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -39240,23 +39240,23 @@ function Timer() {
       setTimerState = _useState6[1]; // Init sounds
 
 
-  var _useSound = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_sounds_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_4__),
+  var _useSound = (0,use_sound__WEBPACK_IMPORTED_MODULE_2__["default"])(assets_sounds_short_break_start_m4a__WEBPACK_IMPORTED_MODULE_7__),
       _useSound2 = _slicedToArray(_useSound, 1),
       playShortBreakStart = _useSound2[0];
 
-  var _useSound3 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_sounds_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_5__),
+  var _useSound3 = (0,use_sound__WEBPACK_IMPORTED_MODULE_2__["default"])(assets_sounds_short_break_end_m4a__WEBPACK_IMPORTED_MODULE_6__),
       _useSound4 = _slicedToArray(_useSound3, 1),
       playShortBreakEnd = _useSound4[0];
 
-  var _useSound5 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_sounds_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_6__),
+  var _useSound5 = (0,use_sound__WEBPACK_IMPORTED_MODULE_2__["default"])(assets_sounds_long_break_start_m4a__WEBPACK_IMPORTED_MODULE_5__),
       _useSound6 = _slicedToArray(_useSound5, 1),
       playLongBreakStart = _useSound6[0];
 
-  var _useSound7 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_sounds_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_7__),
+  var _useSound7 = (0,use_sound__WEBPACK_IMPORTED_MODULE_2__["default"])(assets_sounds_long_break_end_m4a__WEBPACK_IMPORTED_MODULE_4__),
       _useSound8 = _slicedToArray(_useSound7, 1),
       playLongBreakEnd = _useSound8[0];
 
-  var _useSound9 = (0,use_sound__WEBPACK_IMPORTED_MODULE_3__["default"])(assets_sounds_start_m4a__WEBPACK_IMPORTED_MODULE_8__),
+  var _useSound9 = (0,use_sound__WEBPACK_IMPORTED_MODULE_2__["default"])(assets_sounds_start_m4a__WEBPACK_IMPORTED_MODULE_8__),
       _useSound10 = _slicedToArray(_useSound9, 1),
       playStart = _useSound10[0];
   /**
@@ -39385,7 +39385,7 @@ function Timer() {
   }; // Init timer
 
 
-  var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_2__.useTimer)({
+  var _useTimer = (0,react_timer_hook__WEBPACK_IMPORTED_MODULE_3__.useTimer)({
     expiryTimestamp: luxon__WEBPACK_IMPORTED_MODULE_10__.DateTime.now().plus({
       minutes: settings.pomoLength
     }),
@@ -39454,8 +39454,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "store": () => (/* binding */ store)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
+/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
+/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
 /* harmony import */ var _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slices/settingsSlice */ "./src/store/slices/settingsSlice.js");
 /* harmony import */ var _slices_timerSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slices/timerSlice */ "./src/store/slices/timerSlice.js");
 
@@ -39465,9 +39465,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var persistConfig = {
   key: "pomo",
-  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_1__["default"]
+  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_0__["default"]
 };
-var settingsPersistedReducer = (0,redux_persist__WEBPACK_IMPORTED_MODULE_0__.persistReducer)(persistConfig, _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var settingsPersistedReducer = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistReducer)(persistConfig, _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.configureStore)({
   reducer: {
     settings: settingsPersistedReducer,
@@ -39476,12 +39476,12 @@ var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.configureStore)({
   middleware: function middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [redux_persist__WEBPACK_IMPORTED_MODULE_0__.FLUSH, redux_persist__WEBPACK_IMPORTED_MODULE_0__.REHYDRATE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PAUSE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PERSIST, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PURGE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.REGISTER]
+        ignoredActions: [redux_persist__WEBPACK_IMPORTED_MODULE_1__.FLUSH, redux_persist__WEBPACK_IMPORTED_MODULE_1__.REHYDRATE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PAUSE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PERSIST, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PURGE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.REGISTER]
       }
     });
   }
 });
-var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_0__.persistStore)(store);
+var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistStore)(store);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
 
@@ -39606,6 +39606,180 @@ var _timerSlice$actions = timerSlice.actions,
 
 /***/ }),
 
+/***/ "./src/theme/colors.js":
+/*!*****************************!*\
+  !*** ./src/theme/colors.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  white: "rgba(255, 255, 255, 1)",
+  black: "rgba(0, 0, 0, 1)",
+  gray: {
+    950: "rgba(13, 13, 13, 1)",
+    900: "rgba(26, 26, 26, 1)",
+    800: "rgba(51, 51, 51, 1)",
+    700: "rgba(77, 77, 77, 1)",
+    600: "rgba(102, 102, 102, 1)",
+    500: "rgba(128, 128, 128, 1)",
+    400: "rgba(153, 153, 153, 1)",
+    300: "rgba(179, 179, 179, 1)",
+    200: "rgba(204, 204, 204, 1)",
+    100: "rgba(230, 230, 230, 1)",
+    50: "rgba(242, 242, 242, 1)"
+  },
+  red: {
+    950: "rgba(13, 4, 4, 1)",
+    900: "rgba(71, 21, 21, 1)",
+    800: "rgba(117, 35, 35, 1)",
+    700: "rgba(163, 49, 49, 1)",
+    600: "rgba(209, 63, 63, 1)",
+    500: "rgba(255, 76, 76, 1)",
+    400: "rgba(255, 110, 110, 1)",
+    300: "rgba(255, 143, 143, 1)",
+    200: "rgba(255, 176, 176, 1)",
+    100: "rgba(255, 209, 209, 1)",
+    50: "rgba(255, 242, 242, 1)"
+  },
+  green: {
+    950: "rgba(4, 13, 6, 1)",
+    900: "rgba(20, 64, 29, 1)",
+    800: "rgba(33, 102, 48, 1)",
+    700: "rgba(46, 140, 67, 1)",
+    600: "rgba(61, 178, 87, 1)",
+    500: "rgba(77, 218, 108, 1)",
+    400: "rgba(105, 224, 132, 1)",
+    300: "rgba(137, 232, 158, 1)",
+    200: "rgba(170, 240, 185, 1)",
+    100: "rgba(205, 247, 215, 1)",
+    50: "rgba(242, 255, 245, 1)"
+  },
+  blue: {
+    950: "rgba(4, 9, 13, 1)",
+    900: "rgba(21, 48, 71, 1)",
+    800: "rgba(35, 79, 117, 1)",
+    700: "rgba(49, 110, 163, 1)",
+    600: "rgba(63, 141, 209, 1)",
+    500: "rgba(76, 172, 255, 1)",
+    400: "rgba(110, 187, 255, 1)",
+    300: "rgba(143, 203, 255, 1)",
+    200: "rgba(176, 218, 255, 1)",
+    100: "rgba(209, 234, 255, 1)",
+    50: "rgba(242, 249, 255, 1)"
+  },
+  whiteAlpha: {
+    950: "rgba(255, 255, 255, 1)",
+    900: "rgba(255, 255, 255, 0.90)",
+    800: "rgba(255, 255, 255, 0.81)",
+    700: "rgba(255, 255, 255, 0.71)",
+    600: "rgba(255, 255, 255, 0.62)",
+    500: "rgba(255, 255, 255, 0.52)",
+    400: "rgba(255, 255, 255, 0.43)",
+    300: "rgba(255, 255, 255, 0.33)",
+    200: "rgba(255, 255, 255, 0.24)",
+    100: "rgba(255, 255, 255, 0.15)",
+    50: "rgba(255, 255, 255, 0.05)"
+  },
+  blackAlpha: {
+    950: "rgba(0, 0, 0, 1)",
+    900: "rgba(0, 0, 0, 0.90)",
+    800: "rgba(0, 0, 0, 0.81)",
+    700: "rgba(0, 0, 0, 0.71)",
+    600: "rgba(0, 0, 0, 0.62)",
+    500: "rgba(0, 0, 0, 0.52)",
+    400: "rgba(0, 0, 0, 0.43)",
+    300: "rgba(0, 0, 0, 0.33)",
+    200: "rgba(0, 0, 0, 0.24)",
+    100: "rgba(0, 0, 0, 0.15)",
+    50: "rgba(0, 0, 0, 0.05)"
+  },
+  redAlpha: {
+    950: "rgba(255, 76, 76, 1)",
+    900: "rgba(255, 76, 76, 0.90)",
+    800: "rgba(255, 76, 76, 0.81)",
+    700: "rgba(255, 76, 76, 0.71)",
+    600: "rgba(255, 76, 76, 0.62)",
+    500: "rgba(255, 76, 76, 0.52)",
+    400: "rgba(255, 76, 76, 0.43)",
+    300: "rgba(255, 76, 76, 0.33)",
+    200: "rgba(255, 76, 76, 0.24)",
+    100: "rgba(255, 76, 76, 0.15)",
+    50: "rgba(255, 76, 76, 0.05)"
+  },
+  greenAlpha: {
+    950: "rgba(77, 218, 108, 1)",
+    900: "rgba(77, 218, 108, 0.90)",
+    800: "rgba(77, 218, 108, 0.81)",
+    700: "rgba(77, 218, 108, 0.71)",
+    600: "rgba(77, 218, 108, 0.62)",
+    500: "rgba(77, 218, 108, 0.52)",
+    400: "rgba(77, 218, 108, 0.43)",
+    300: "rgba(77, 218, 108, 0.33)",
+    200: "rgba(77, 218, 108, 0.24)",
+    100: "rgba(77, 218, 108, 0.15)",
+    50: "rgba(77, 218, 108, 0.05)"
+  },
+  blueAlpha: {
+    950: "rgba(76, 172, 255, 1)",
+    900: "rgba(76, 172, 255, 0.90)",
+    800: "rgba(76, 172, 255, 0.81)",
+    700: "rgba(76, 172, 255, 0.71)",
+    600: "rgba(76, 172, 255, 0.62)",
+    500: "rgba(76, 172, 255, 0.52)",
+    400: "rgba(76, 172, 255, 0.43)",
+    300: "rgba(76, 172, 255, 0.33)",
+    200: "rgba(76, 172, 255, 0.24)",
+    100: "rgba(76, 172, 255, 0.15)",
+    50: "rgba(76, 172, 255, 0.05)"
+  }
+});
+
+/***/ }),
+
+/***/ "./src/theme/components/Button.js":
+/*!****************************************!*\
+  !*** ./src/theme/components/Button.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/theme/dist/chakra-ui-theme.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  sizes: {
+    xl: {
+      h: 16,
+      minW: 16,
+      fontSize: "xl"
+    }
+  },
+  variants: {
+    circle: function circle(props) {
+      return _objectSpread(_objectSpread({}, _chakra_ui_react__WEBPACK_IMPORTED_MODULE_0__.theme.components.Button.variants.solid(props)), {}, {
+        borderRadius: "1000px",
+        px: 0
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./src/theme/index.js":
 /*!****************************!*\
   !*** ./src/theme/index.js ***!
@@ -39617,18 +39791,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/theme/dist/chakra-ui-theme.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+/* harmony import */ var _chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/theme-tools */ "./node_modules/@chakra-ui/theme-tools/dist/chakra-ui-theme-tools.esm.js");
 /* harmony import */ var _fontsource_inter_variable_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fontsource/inter/variable.css */ "./node_modules/@fontsource/inter/variable.css");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Button */ "./src/theme/components/Button.js");
+/* harmony import */ var _colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colors */ "./src/theme/colors.js");
 
 
 
-var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.extendTheme)({
+
+
+var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.extendTheme)({
+  colors: _colors__WEBPACK_IMPORTED_MODULE_2__["default"],
+  components: {
+    Button: _components_Button__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   config: {
     initialColorMode: "system",
     useSystemColorMode: false
@@ -39637,23 +39814,26 @@ var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.extendTheme)({
     heading: "InterVariable",
     body: "InterVariable"
   },
-  components: {
-    Button: {
-      sizes: {
-        xl: {
-          h: 16,
-          minW: 16,
-          fontSize: "xl"
+  styles: {
+    global: function global(props) {
+      return {
+        body: {
+          fontFamily: "body",
+          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("black", "white")(props),
+          bg: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("white", "gray.800")(props),
+          transitionProperty: "background-color",
+          transitionDuration: "normal",
+          lineHeight: "base"
+        },
+        "*::placeholder": {
+          color: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("gray.400", "whiteAlpha.400")(props)
+        },
+        "*, *::before, &::after": {
+          borderColor: (0,_chakra_ui_theme_tools__WEBPACK_IMPORTED_MODULE_4__.mode)("gray.200", "whiteAlpha.300")(props),
+          WebkitTapHighlightColor: "transparent",
+          wordWrap: "break-word"
         }
-      },
-      variants: {
-        circle: function circle(props) {
-          return _objectSpread(_objectSpread({}, _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.theme.components.Button.variants.solid(props)), {}, {
-            borderRadius: "1000px",
-            px: 0
-          });
-        }
-      }
+      };
     }
   }
 });
@@ -41056,6 +41236,327 @@ var tabbables = [
     '[contenteditable]',
     '[autofocus]',
 ];
+
+
+/***/ }),
+
+/***/ "./node_modules/focus-visible/dist/focus-visible.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/focus-visible/dist/focus-visible.js ***!
+  \**********************************************************/
+/***/ (function() {
+
+(function (global, factory) {
+   true ? factory() :
+  0;
+}(this, (function () { 'use strict';
+
+  /**
+   * Applies the :focus-visible polyfill at the given scope.
+   * A scope in this case is either the top-level Document or a Shadow Root.
+   *
+   * @param {(Document|ShadowRoot)} scope
+   * @see https://github.com/WICG/focus-visible
+   */
+  function applyFocusVisiblePolyfill(scope) {
+    var hadKeyboardEvent = true;
+    var hadFocusVisibleRecently = false;
+    var hadFocusVisibleRecentlyTimeout = null;
+
+    var inputTypesAllowlist = {
+      text: true,
+      search: true,
+      url: true,
+      tel: true,
+      email: true,
+      password: true,
+      number: true,
+      date: true,
+      month: true,
+      week: true,
+      time: true,
+      datetime: true,
+      'datetime-local': true
+    };
+
+    /**
+     * Helper function for legacy browsers and iframes which sometimes focus
+     * elements like document, body, and non-interactive SVG.
+     * @param {Element} el
+     */
+    function isValidFocusTarget(el) {
+      if (
+        el &&
+        el !== document &&
+        el.nodeName !== 'HTML' &&
+        el.nodeName !== 'BODY' &&
+        'classList' in el &&
+        'contains' in el.classList
+      ) {
+        return true;
+      }
+      return false;
+    }
+
+    /**
+     * Computes whether the given element should automatically trigger the
+     * `focus-visible` class being added, i.e. whether it should always match
+     * `:focus-visible` when focused.
+     * @param {Element} el
+     * @return {boolean}
+     */
+    function focusTriggersKeyboardModality(el) {
+      var type = el.type;
+      var tagName = el.tagName;
+
+      if (tagName === 'INPUT' && inputTypesAllowlist[type] && !el.readOnly) {
+        return true;
+      }
+
+      if (tagName === 'TEXTAREA' && !el.readOnly) {
+        return true;
+      }
+
+      if (el.isContentEditable) {
+        return true;
+      }
+
+      return false;
+    }
+
+    /**
+     * Add the `focus-visible` class to the given element if it was not added by
+     * the author.
+     * @param {Element} el
+     */
+    function addFocusVisibleClass(el) {
+      if (el.classList.contains('focus-visible')) {
+        return;
+      }
+      el.classList.add('focus-visible');
+      el.setAttribute('data-focus-visible-added', '');
+    }
+
+    /**
+     * Remove the `focus-visible` class from the given element if it was not
+     * originally added by the author.
+     * @param {Element} el
+     */
+    function removeFocusVisibleClass(el) {
+      if (!el.hasAttribute('data-focus-visible-added')) {
+        return;
+      }
+      el.classList.remove('focus-visible');
+      el.removeAttribute('data-focus-visible-added');
+    }
+
+    /**
+     * If the most recent user interaction was via the keyboard;
+     * and the key press did not include a meta, alt/option, or control key;
+     * then the modality is keyboard. Otherwise, the modality is not keyboard.
+     * Apply `focus-visible` to any current active element and keep track
+     * of our keyboard modality state with `hadKeyboardEvent`.
+     * @param {KeyboardEvent} e
+     */
+    function onKeyDown(e) {
+      if (e.metaKey || e.altKey || e.ctrlKey) {
+        return;
+      }
+
+      if (isValidFocusTarget(scope.activeElement)) {
+        addFocusVisibleClass(scope.activeElement);
+      }
+
+      hadKeyboardEvent = true;
+    }
+
+    /**
+     * If at any point a user clicks with a pointing device, ensure that we change
+     * the modality away from keyboard.
+     * This avoids the situation where a user presses a key on an already focused
+     * element, and then clicks on a different element, focusing it with a
+     * pointing device, while we still think we're in keyboard modality.
+     * @param {Event} e
+     */
+    function onPointerDown(e) {
+      hadKeyboardEvent = false;
+    }
+
+    /**
+     * On `focus`, add the `focus-visible` class to the target if:
+     * - the target received focus as a result of keyboard navigation, or
+     * - the event target is an element that will likely require interaction
+     *   via the keyboard (e.g. a text box)
+     * @param {Event} e
+     */
+    function onFocus(e) {
+      // Prevent IE from focusing the document or HTML element.
+      if (!isValidFocusTarget(e.target)) {
+        return;
+      }
+
+      if (hadKeyboardEvent || focusTriggersKeyboardModality(e.target)) {
+        addFocusVisibleClass(e.target);
+      }
+    }
+
+    /**
+     * On `blur`, remove the `focus-visible` class from the target.
+     * @param {Event} e
+     */
+    function onBlur(e) {
+      if (!isValidFocusTarget(e.target)) {
+        return;
+      }
+
+      if (
+        e.target.classList.contains('focus-visible') ||
+        e.target.hasAttribute('data-focus-visible-added')
+      ) {
+        // To detect a tab/window switch, we look for a blur event followed
+        // rapidly by a visibility change.
+        // If we don't see a visibility change within 100ms, it's probably a
+        // regular focus change.
+        hadFocusVisibleRecently = true;
+        window.clearTimeout(hadFocusVisibleRecentlyTimeout);
+        hadFocusVisibleRecentlyTimeout = window.setTimeout(function() {
+          hadFocusVisibleRecently = false;
+        }, 100);
+        removeFocusVisibleClass(e.target);
+      }
+    }
+
+    /**
+     * If the user changes tabs, keep track of whether or not the previously
+     * focused element had .focus-visible.
+     * @param {Event} e
+     */
+    function onVisibilityChange(e) {
+      if (document.visibilityState === 'hidden') {
+        // If the tab becomes active again, the browser will handle calling focus
+        // on the element (Safari actually calls it twice).
+        // If this tab change caused a blur on an element with focus-visible,
+        // re-apply the class when the user switches back to the tab.
+        if (hadFocusVisibleRecently) {
+          hadKeyboardEvent = true;
+        }
+        addInitialPointerMoveListeners();
+      }
+    }
+
+    /**
+     * Add a group of listeners to detect usage of any pointing devices.
+     * These listeners will be added when the polyfill first loads, and anytime
+     * the window is blurred, so that they are active when the window regains
+     * focus.
+     */
+    function addInitialPointerMoveListeners() {
+      document.addEventListener('mousemove', onInitialPointerMove);
+      document.addEventListener('mousedown', onInitialPointerMove);
+      document.addEventListener('mouseup', onInitialPointerMove);
+      document.addEventListener('pointermove', onInitialPointerMove);
+      document.addEventListener('pointerdown', onInitialPointerMove);
+      document.addEventListener('pointerup', onInitialPointerMove);
+      document.addEventListener('touchmove', onInitialPointerMove);
+      document.addEventListener('touchstart', onInitialPointerMove);
+      document.addEventListener('touchend', onInitialPointerMove);
+    }
+
+    function removeInitialPointerMoveListeners() {
+      document.removeEventListener('mousemove', onInitialPointerMove);
+      document.removeEventListener('mousedown', onInitialPointerMove);
+      document.removeEventListener('mouseup', onInitialPointerMove);
+      document.removeEventListener('pointermove', onInitialPointerMove);
+      document.removeEventListener('pointerdown', onInitialPointerMove);
+      document.removeEventListener('pointerup', onInitialPointerMove);
+      document.removeEventListener('touchmove', onInitialPointerMove);
+      document.removeEventListener('touchstart', onInitialPointerMove);
+      document.removeEventListener('touchend', onInitialPointerMove);
+    }
+
+    /**
+     * When the polfyill first loads, assume the user is in keyboard modality.
+     * If any event is received from a pointing device (e.g. mouse, pointer,
+     * touch), turn off keyboard modality.
+     * This accounts for situations where focus enters the page from the URL bar.
+     * @param {Event} e
+     */
+    function onInitialPointerMove(e) {
+      // Work around a Safari quirk that fires a mousemove on <html> whenever the
+      // window blurs, even if you're tabbing out of the page. ¯\_(ツ)_/¯
+      if (e.target.nodeName && e.target.nodeName.toLowerCase() === 'html') {
+        return;
+      }
+
+      hadKeyboardEvent = false;
+      removeInitialPointerMoveListeners();
+    }
+
+    // For some kinds of state, we are interested in changes at the global scope
+    // only. For example, global pointer input, global key presses and global
+    // visibility change should affect the state at every scope:
+    document.addEventListener('keydown', onKeyDown, true);
+    document.addEventListener('mousedown', onPointerDown, true);
+    document.addEventListener('pointerdown', onPointerDown, true);
+    document.addEventListener('touchstart', onPointerDown, true);
+    document.addEventListener('visibilitychange', onVisibilityChange, true);
+
+    addInitialPointerMoveListeners();
+
+    // For focus and blur, we specifically care about state changes in the local
+    // scope. This is because focus / blur events that originate from within a
+    // shadow root are not re-dispatched from the host element if it was already
+    // the active element in its own scope:
+    scope.addEventListener('focus', onFocus, true);
+    scope.addEventListener('blur', onBlur, true);
+
+    // We detect that a node is a ShadowRoot by ensuring that it is a
+    // DocumentFragment and also has a host property. This check covers native
+    // implementation and polyfill implementation transparently. If we only cared
+    // about the native implementation, we could just check if the scope was
+    // an instance of a ShadowRoot.
+    if (scope.nodeType === Node.DOCUMENT_FRAGMENT_NODE && scope.host) {
+      // Since a ShadowRoot is a special kind of DocumentFragment, it does not
+      // have a root element to add a class to. So, we add this attribute to the
+      // host element instead:
+      scope.host.setAttribute('data-js-focus-visible', '');
+    } else if (scope.nodeType === Node.DOCUMENT_NODE) {
+      document.documentElement.classList.add('js-focus-visible');
+      document.documentElement.setAttribute('data-js-focus-visible', '');
+    }
+  }
+
+  // It is important to wrap all references to global window and document in
+  // these checks to support server-side rendering use cases
+  // @see https://github.com/WICG/focus-visible/issues/199
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    // Make the polyfill helper globally available. This can be used as a signal
+    // to interested libraries that wish to coordinate with the polyfill for e.g.,
+    // applying the polyfill to a shadow root:
+    window.applyFocusVisiblePolyfill = applyFocusVisiblePolyfill;
+
+    // Notify interested libraries of the polyfill's presence, in case the
+    // polyfill was loaded lazily:
+    var event;
+
+    try {
+      event = new CustomEvent('focus-visible-polyfill-ready');
+    } catch (error) {
+      // IE11 does not support using CustomEvent as a constructor directly:
+      event = document.createEvent('CustomEvent');
+      event.initCustomEvent('focus-visible-polyfill-ready', false, false, {});
+    }
+
+    window.dispatchEvent(event);
+  }
+
+  if (typeof document !== 'undefined') {
+    // Apply the polyfill to the global document, so that no JavaScript
+    // coordination is required to use the polyfill in the top-level document:
+    applyFocusVisiblePolyfill(document);
+  }
+
+})));
 
 
 /***/ }),
@@ -106296,14 +106797,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
-/* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
-/* harmony import */ var store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! store */ "./src/store/index.js");
-/* harmony import */ var redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/integration/react */ "./node_modules/redux-persist/es/integration/react.js");
+/* harmony import */ var focus_visible_dist_focus_visible__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! focus-visible/dist/focus-visible */ "./node_modules/focus-visible/dist/focus-visible.js");
+/* harmony import */ var focus_visible_dist_focus_visible__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(focus_visible_dist_focus_visible__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-persist/integration/react */ "./node_modules/redux-persist/es/integration/react.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App */ "./src/App.js");
 /* harmony import */ var utils_customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! utils/customLocalStorageManager */ "./src/utils/customLocalStorageManager.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
+/* harmony import */ var store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! store */ "./src/store/index.js");
 
 
 
@@ -106313,17 +106816,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
-  store: store__WEBPACK_IMPORTED_MODULE_4__.store
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_5__.PersistGate, {
+
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__.Provider, {
+  store: store__WEBPACK_IMPORTED_MODULE_8__.store
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_3__.PersistGate, {
   loading: null,
-  persistor: store__WEBPACK_IMPORTED_MODULE_4__.persistor
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.ChakraProvider, {
-  theme: theme__WEBPACK_IMPORTED_MODULE_3__["default"],
+  persistor: store__WEBPACK_IMPORTED_MODULE_8__.persistor
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.ChakraProvider, {
+  theme: theme__WEBPACK_IMPORTED_MODULE_7__["default"],
   colorModeManager: utils_customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__.customLocalStorageManager
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.ColorModeScript, {
-  initialColorMode: theme__WEBPACK_IMPORTED_MODULE_3__["default"].config.initialColorMode
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_7__["default"], null))))), document.getElementById("root"));
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.ColorModeScript, {
+  initialColorMode: theme__WEBPACK_IMPORTED_MODULE_7__["default"].config.initialColorMode
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_5__["default"], null))))), document.getElementById("root"));
 })();
 
 /******/ })()

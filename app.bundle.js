@@ -39440,37 +39440,6 @@ function Timer() {
 
 /***/ }),
 
-/***/ "./src/customLocalStorageManager.js":
-/*!******************************************!*\
-  !*** ./src/customLocalStorageManager.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "customLocalStorageManager": () => (/* binding */ customLocalStorageManager)
-/* harmony export */ });
-var hasSupport = function hasSupport() {
-  return typeof Storage !== "undefined";
-};
-
-var storageKey = "pomo-color-mode";
-var customLocalStorageManager = {
-  get: function get(init) {
-    if (!hasSupport()) return init;
-    var value = localStorage.getItem(storageKey);
-    return value !== null && value !== void 0 ? value : init;
-  },
-  set: function set(value) {
-    if (!hasSupport()) return;
-    localStorage.setItem(storageKey, value);
-  },
-  type: "localStorage"
-};
-
-/***/ }),
-
 /***/ "./src/store/index.js":
 /*!****************************!*\
   !*** ./src/store/index.js ***!
@@ -39484,32 +39453,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "persistor": () => (/* binding */ persistor),
 /* harmony export */   "store": () => (/* binding */ store)
 /* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slices/settingsSlice */ "./src/store/slices/settingsSlice.js");
-/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
-/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var redux_persist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
+/* harmony import */ var redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js");
+/* harmony import */ var _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slices/settingsSlice */ "./src/store/slices/settingsSlice.js");
+/* harmony import */ var _slices_timerSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slices/timerSlice */ "./src/store/slices/timerSlice.js");
+
 
 
 
 
 var persistConfig = {
   key: "pomo",
-  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_2__["default"]
+  storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_1__["default"]
 };
-var settingsPersistedReducer = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistReducer)(persistConfig, _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_3__.configureStore)({
+var settingsPersistedReducer = (0,redux_persist__WEBPACK_IMPORTED_MODULE_0__.persistReducer)(persistConfig, _slices_settingsSlice__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.configureStore)({
   reducer: {
-    settings: settingsPersistedReducer
+    settings: settingsPersistedReducer,
+    timer: _slices_timerSlice__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   middleware: function middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [redux_persist__WEBPACK_IMPORTED_MODULE_1__.FLUSH, redux_persist__WEBPACK_IMPORTED_MODULE_1__.REHYDRATE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PAUSE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PERSIST, redux_persist__WEBPACK_IMPORTED_MODULE_1__.PURGE, redux_persist__WEBPACK_IMPORTED_MODULE_1__.REGISTER]
+        ignoredActions: [redux_persist__WEBPACK_IMPORTED_MODULE_0__.FLUSH, redux_persist__WEBPACK_IMPORTED_MODULE_0__.REHYDRATE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PAUSE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PERSIST, redux_persist__WEBPACK_IMPORTED_MODULE_0__.PURGE, redux_persist__WEBPACK_IMPORTED_MODULE_0__.REGISTER]
       }
     });
   }
 });
-var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_1__.persistStore)(store);
+var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_0__.persistStore)(store);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
 
@@ -39584,6 +39556,56 @@ var _settingsSlice$action = settingsSlice.actions,
 
 /***/ }),
 
+/***/ "./src/store/slices/timerSlice.js":
+/*!****************************************!*\
+  !*** ./src/store/slices/timerSlice.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "incrementPomoCounter": () => (/* binding */ incrementPomoCounter),
+/* harmony export */   "resetPomoCounter": () => (/* binding */ resetPomoCounter),
+/* harmony export */   "timerSlice": () => (/* binding */ timerSlice),
+/* harmony export */   "toggleRunning": () => (/* binding */ toggleRunning),
+/* harmony export */   "updateStage": () => (/* binding */ updateStage)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+var timerSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
+  name: "timer",
+  initialState: {
+    isRunning: false,
+    stage: "pomo",
+    pomoCounter: 0
+  },
+  reducers: {
+    updateStage: function updateStage(state, action) {
+      state.stage = action.payload;
+    },
+    toggleRunning: function toggleRunning(state) {
+      state.isRunning = !state.isRunning;
+    },
+    incrementPomoCounter: function incrementPomoCounter(state) {
+      state.pomoCounter++;
+    },
+    resetPomoCounter: function resetPomoCounter(state) {
+      state.pomoCounter = 0;
+    }
+  }
+});
+var _timerSlice$actions = timerSlice.actions,
+    updateStage = _timerSlice$actions.updateStage,
+    toggleRunning = _timerSlice$actions.toggleRunning,
+    incrementPomoCounter = _timerSlice$actions.incrementPomoCounter,
+    resetPomoCounter = _timerSlice$actions.resetPomoCounter;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timerSlice.reducer);
+
+/***/ }),
+
 /***/ "./src/theme/index.js":
 /*!****************************!*\
   !*** ./src/theme/index.js ***!
@@ -39636,6 +39658,37 @@ var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.extendTheme)({
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (theme);
+
+/***/ }),
+
+/***/ "./src/utils/customLocalStorageManager.js":
+/*!************************************************!*\
+  !*** ./src/utils/customLocalStorageManager.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customLocalStorageManager": () => (/* binding */ customLocalStorageManager)
+/* harmony export */ });
+var hasSupport = function hasSupport() {
+  return typeof Storage !== "undefined";
+};
+
+var storageKey = "pomo-color-mode";
+var customLocalStorageManager = {
+  get: function get(init) {
+    if (!hasSupport()) return init;
+    var value = localStorage.getItem(storageKey);
+    return value !== null && value !== void 0 ? value : init;
+  },
+  set: function set(value) {
+    if (!hasSupport()) return;
+    localStorage.setItem(storageKey, value);
+  },
+  type: "localStorage"
+};
 
 /***/ }),
 
@@ -106249,7 +106302,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
 /* harmony import */ var store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! store */ "./src/store/index.js");
 /* harmony import */ var redux_persist_integration_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux-persist/integration/react */ "./node_modules/redux-persist/es/integration/react.js");
-/* harmony import */ var customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! customLocalStorageManager */ "./src/customLocalStorageManager.js");
+/* harmony import */ var utils_customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! utils/customLocalStorageManager */ "./src/utils/customLocalStorageManager.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App */ "./src/App.js");
 
 
@@ -106267,7 +106320,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPOR
   persistor: store__WEBPACK_IMPORTED_MODULE_4__.persistor
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.ChakraProvider, {
   theme: theme__WEBPACK_IMPORTED_MODULE_3__["default"],
-  colorModeManager: customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__.customLocalStorageManager
+  colorModeManager: utils_customLocalStorageManager__WEBPACK_IMPORTED_MODULE_6__.customLocalStorageManager
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.ColorModeScript, {
   initialColorMode: theme__WEBPACK_IMPORTED_MODULE_3__["default"].config.initialColorMode
 }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_7__["default"], null))))), document.getElementById("root"));

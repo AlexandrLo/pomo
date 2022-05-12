@@ -27,7 +27,7 @@ function SettingsModal({ isOpen, onClose }) {
         <ModalCloseButton />
         <VStack spacing="0" align="stretch" pb="1.5rem">
           <SettingInput
-            id="dark-mode-switch"
+            name="darkModeSwitch"
             friendlyName="Enable dark mode"
             type="bool"
             isChecked={colorMode === "dark"}

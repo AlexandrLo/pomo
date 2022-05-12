@@ -14,12 +14,26 @@ import {
   Switch,
 } from "@chakra-ui/react";
 
-function SettingInput({ name, friendlyName, type, value, onChange }) {
+function SettingInput({
+  name,
+  friendlyName,
+  type,
+  value,
+  isChecked,
+  onChange,
+}) {
   const dispatch = useDispatch();
 
-  const numberHandler = (e) => dispatch(updateSetting({ name, value: e }));
+  const numberHandler = (e) => {
+    dispatch(
+      updateSetting({
+        name,
+        value: isNaN(e) ? 0 : Math.min(Math.max(e, 0), 59),
+      }),
+    );
+  };
+
   const switchHandler = (e) => {
-    console.log(e);
     dispatch(updateSetting({ name, value: e.target.checked }));
   };
 
@@ -51,7 +65,7 @@ function SettingInput({ name, friendlyName, type, value, onChange }) {
       {type == "bool" && (
         <Switch
           id={name}
-          isChecked={value}
+          isChecked={isChecked ? isChecked : value}
           onChange={onChange ? onChange : switchHandler}
         />
       )}
@@ -64,6 +78,7 @@ SettingInput.propTypes = {
   friendlyName: PropTypes.string,
   type: PropTypes.oneOf(["bool", "number"]),
   value: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  isChecked: PropTypes.bool,
   onChange: PropTypes.func,
 };
 

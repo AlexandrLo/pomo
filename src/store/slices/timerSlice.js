@@ -1,33 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  isRunning: false,
+  stage: "POMO",
+  prevStage: "LONG_BREAK",
+  pomoCounter: 1,
+};
+
 export const timerSlice = createSlice({
   name: "timer",
-  initialState: {
-    isRunning: false,
-    stage: "pomo",
-    pomoCounter: 0,
-  },
+  initialState,
   reducers: {
-    updateStage: (state, action) => {
-      state.stage = action.payload;
-    },
     toggleRunning: (state) => {
       state.isRunning = !state.isRunning;
     },
-    incrementPomoCounter: (state) => {
-      state.pomoCounter++;
+    nextStage: (state, action) => {
+      state.prevStage = state.stage;
+
+      switch (state.stage) {
+        default:
+        case "POMO":
+          if (state.pomoCounter >= action.payload.pomoCount.value) {
+            state.stage = "LONG_BREAK";
+          } else {
+            state.stage = "SHORT_BREAK";
+          }
+          break;
+
+        case "SHORT_BREAK":
+        case "LONG_BREAK":
+          if (state.pomoCounter >= action.payload.pomoCount.value) {
+            state.pomoCounter = 1;
+          } else {
+            state.pomoCounter++;
+          }
+          state.stage = "POMO";
+          break;
+      }
     },
-    resetPomoCounter: (state) => {
-      state.pomoCounter = 0;
-    },
+    resetTimer: () => initialState,
   },
 });
 
-export const {
-  updateStage,
-  toggleRunning,
-  incrementPomoCounter,
-  resetPomoCounter,
-} = timerSlice.actions;
+export const { toggleRunning, nextStage, resetTimer } = timerSlice.actions;
 
 export default timerSlice.reducer;

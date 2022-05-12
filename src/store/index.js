@@ -15,7 +15,7 @@ import settingsReducer from "./slices/settingsSlice";
 import timerReducer from "./slices/timerSlice";
 
 const persistConfig = {
-  key: "pomo",
+  key: "pomo.v2",
   storage,
 };
 

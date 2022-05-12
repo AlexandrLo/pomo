@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 import { DateTime } from "luxon";
-import { useSelector } from "react-redux";
 import useSound from "use-sound";
 import { useTimer } from "react-timer-hook";
-import { Button, Container, HStack, Text, VStack } from "@chakra-ui/react";
-import { FiFastForward, FiPause, FiPlay } from "react-icons/fi";
+import { Container, HStack, VStack } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 
+import Display from "components/Display";
+import MenuButton from "components/MenuButton";
+import PlayButton from "components/PlayButton";
+import SkipButton from "components/SkipButton";
 import longBreakEndSfx from "assets/sounds/long_break_end.m4a";
 import longBreakStartSfx from "assets/sounds/long_break_start.m4a";
 import shortBreakEndSfx from "assets/sounds/short_break_end.m4a";
 import shortBreakStartSfx from "assets/sounds/short_break_start.m4a";
 import startSfx from "assets/sounds/start.m4a";
+import { nextStage, toggleRunning } from "store/slices/timerSlice";
+import { notifyMe, requestNotifications } from "utils/notify";
 
 function Timer() {
-  // Get app settings
-  const settings = useSelector((state) => state.settings);
+  const dispatch = useDispatch();
 
-  // Init state
-  const [playIcon, setPlayIcon] = useState(<FiPlay />);
-  const [pomoCounter, setPomoCounter] = useState(1);
-  const [timerState, setTimerState] = useState("pomo");
+  // Get app state
+  const settings = useSelector((state) => state.settings);
+  const isRunning = useSelector((state) => state.timer.isRunning);
+  const stage = useSelector((state) => state.timer.stage);
+  const prevStage = useSelector((state) => state.timer.prevStage);
 
   // Init sounds
   const [playShortBreakStart] = useSound(shortBreakStartSfx);
@@ -29,159 +34,88 @@ function Timer() {
   const [playLongBreakEnd] = useSound(longBreakEndSfx);
   const [playStart] = useSound(startSfx);
 
-  /**
-   * Requests notification permissions and sends notifications
-   *
-   * @param {*} title Notification title
-   * @param {*} [options={}] Notification options
-   */
-  const notifyMe = (title, options = {}) => {
-    if (!("Notification" in window)) {
-      alert("This browser does not support desktop notification");
-    } else if (Notification.permission === "granted") {
-      new Notification(title, options);
-    } else if (Notification.permission !== "denied") {
-      Notification.requestPermission().then(function (permission) {
-        if (permission === "granted") {
-          new Notification(title, options);
-        }
-      });
-    }
-  };
+  // Request notification permission on mount
+  useEffect(() => {
+    requestNotifications();
+  }, []);
 
-  /**
-   * Restarts timer
-   *
-   * @param {*} time Time in minutes for timer
-   * @param {*} autoStart True if timer should autostart
-   * @return {number} timeoutID from setTimeout()
-   */
-  const simpleRestart = (time, autoStart) => {
-    return setTimeout(() => {
-      restart(DateTime.now().plus({ minutes: time }), autoStart);
-    }, 100);
-  };
-
-  /**
-   * Returns function that updates timer
-   *
-   * @param {boolean} [autoResume=false] True if timer should autostart
-   * @param {boolean} [sound=false] True if sounds is enabled
-   * @param {boolean} [notify=false] True if notifications is enabled
-   * @return {function} Function that cycles through pomodoro stages and updates timer accordingly
-   */
-  const timerHandler = (autoResume = false, sound = false, notify = false) => {
-    return () => {
-      // Restart timer for current state
-      if (timerState === "pomo") {
-        if (pomoCounter >= settings.pomoCount) {
-          if (sound) playLongBreakStart();
-          if (notify)
-            notifyMe("Pomo", { body: "Time for a long break!", silent: true });
-          setTimerState("longBreak");
-          simpleRestart(settings.longBreak, autoResume);
-        } else {
-          if (sound) playShortBreakStart();
-          if (notify)
-            notifyMe("Pomo", { body: "Time for a short break!", silent: true });
-          setTimerState("shortBreak");
-          simpleRestart(settings.shortBreak, autoResume);
-        }
-      } else if (timerState === "shortBreak" || timerState === "longBreak") {
-        switch (timerState) {
-          default:
-          case "shortBreak":
-            if (sound) playShortBreakEnd();
-            break;
-          case "longBreak":
-            if (sound) playLongBreakEnd();
-            break;
-        }
-        if (notify) notifyMe("Pomo", { body: "Time to work!", silent: true });
-        if (pomoCounter >= settings.pomoCount) {
-          setPomoCounter(1);
-        } else {
-          setPomoCounter((old) => old + 1);
-        }
-        setTimerState("pomo");
-        simpleRestart(settings.pomoLength, autoResume);
-      }
-      // Update play button
-      if (!autoResume) {
-        setPlayIcon(<FiPlay />);
-      }
-    };
-  };
-
-  /**
-   * Play button handler. Pauses and resumes timer and updates button icon accordingly
-   *
-   */
-  const playHandler = () => {
+  // Handle pause and resume
+  useEffect(() => {
     if (isRunning) {
-      setPlayIcon(<FiPlay />);
-      pause();
-    } else {
-      setPlayIcon(<FiPause />);
+      if (settings.sound.value) playStart();
       resume();
-      playStart();
+    } else {
+      pause();
     }
-  };
+  }, [isRunning]);
+
+  // Handle timer stage updates
+  useEffect(() => {
+    let restartTime = 0;
+    let notificationBody = "";
+    let playSound = playStart;
+
+    switch (stage) {
+      default:
+      case "POMO":
+        restartTime = settings.pomoLength.value;
+        notificationBody = "Time to work!";
+        switch (prevStage) {
+          default:
+          case "SHORT_BREAK":
+            playSound = playShortBreakEnd;
+            break;
+          case "LONG_BREAK":
+            playSound = playLongBreakEnd;
+            break;
+        }
+        break;
+      case "SHORT_BREAK":
+        restartTime = settings.shortBreak.value;
+        notificationBody = "Time for a short break!";
+        playSound = playShortBreakStart;
+        break;
+      case "LONG_BREAK":
+        restartTime = settings.longBreak.value;
+        notificationBody = "Time for a long break!";
+        playSound = playLongBreakStart;
+        break;
+    }
+
+    if (isRunning) {
+      if (settings.notify.value) {
+        notifyMe("Pomo", { body: notificationBody, silent: true });
+      }
+      if (settings.sound.value) {
+        playSound();
+      }
+      if (!settings.autoResume.value) {
+        dispatch(toggleRunning());
+      }
+      setTimeout(() => {
+        restart(
+          DateTime.now().plus({ minutes: restartTime }),
+          settings.autoResume.value,
+        );
+      }, 100);
+    } else {
+      restart(DateTime.now().plus({ minutes: restartTime }), false);
+    }
+  }, [stage]);
 
   // Init timer
-  const { seconds, minutes, isRunning, pause, resume, restart } = useTimer({
-    expiryTimestamp: DateTime.now().plus({ minutes: settings.pomoLength }),
-    autoStart: false,
-    onExpire: timerHandler(
-      settings.autoResume,
-      settings.sound,
-      settings.notify,
-    ),
+  const { seconds, minutes, pause, resume, restart } = useTimer({
+    onExpire: () => dispatch(nextStage(settings)),
   });
 
   return (
     <Container>
       <VStack align="center" justify="center" minH="100vh">
-        <Text
-          fontSize="xl"
-          fontWeight="800"
-          textTransform="uppercase"
-          color={() => {
-            switch (timerState) {
-              default:
-              case "pomo":
-                return "red";
-              case "shortBreak":
-                return "green.500";
-              case "longBreak":
-                return "green.600";
-            }
-          }}
-        >
-          {timerState === "pomo" && `Pomodoro ${pomoCounter}`}
-          {timerState === "shortBreak" && "Short break"}
-          {timerState === "longBreak" && "Long break"}
-        </Text>
-        <Text fontSize="8xl" fontWeight="700">
-          {DateTime.fromFormat(`${minutes}:${seconds}`, "m:s").toFormat("m:ss")}
-        </Text>
+        <Display minutes={minutes} seconds={seconds} />
         <HStack>
-          <Button
-            variant="circle"
-            colorScheme="blue"
-            size="xl"
-            onClick={playHandler}
-          >
-            {playIcon}
-          </Button>
-          <Button
-            variant="circle"
-            colorScheme="gray"
-            size="xl"
-            onClick={timerHandler()}
-          >
-            <FiFastForward />
-          </Button>
+          <MenuButton />
+          <PlayButton />
+          <SkipButton />
         </HStack>
       </VStack>
     </Container>

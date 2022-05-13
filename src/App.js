@@ -10,6 +10,7 @@ import Display from "components/Display";
 import MenuButton from "components/MenuButton";
 import PlayButton from "components/PlayButton";
 import SkipButton from "components/SkipButton";
+import StageLabel from "components/StageLabel";
 import TitleUpdater from "components/TitleUpdater";
 import longBreakEndSfx from "assets/sounds/long_break_end.m4a";
 import longBreakStartSfx from "assets/sounds/long_break_start.m4a";
@@ -112,13 +113,20 @@ function App() {
 
   return (
     <Container>
-      <VStack align="center" justify="center" minH="100vh">
-        <TitleUpdater
-          minutes={minutes}
-          seconds={seconds}
-          stage={stage}
-          isRunning={isRunning}
-        />
+      <TitleUpdater
+        minutes={minutes}
+        seconds={seconds}
+        stage={stage}
+        isRunning={isRunning}
+      />
+      <VStack
+        align="center"
+        justify="center"
+        minH="100vh"
+        p="1.5rem"
+        spacing="2rem"
+      >
+        <StageLabel />
         <Display minutes={minutes} seconds={seconds} />
         <HStack>
           <MenuButton />

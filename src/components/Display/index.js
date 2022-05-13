@@ -13,7 +13,11 @@ function Display({ minutes = 0, seconds = 0 }) {
 
   useEffect(() => {
     api.start({
-      to: { fontWeight: isRunning ? 700 : 400 },
+      to: { fontWeight: isRunning ? 800 : 400 },
+      config: {
+        tension: 180,
+        friction: 11,
+      },
     });
   }, [isRunning]);
 

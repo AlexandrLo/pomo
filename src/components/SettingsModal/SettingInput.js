@@ -43,8 +43,9 @@ function SettingInput({
       alignItems="center"
       justifyContent="space-between"
       px="1.5rem"
+      height="4rem"
     >
-      <FormLabel htmlFor={name} mb="0" w="100%" lineHeight="4rem">
+      <FormLabel htmlFor={name} mb="0">
         {friendlyName}
       </FormLabel>
 

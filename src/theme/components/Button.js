@@ -2,6 +2,10 @@ import { theme as defaultTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
 export default {
+  baseStyle: {
+    transitionProperty: "common",
+    transitionDuration: "normal",
+  },
   sizes: {
     xl: {
       h: 16,

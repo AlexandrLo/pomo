@@ -12,11 +12,16 @@ export default {
       dialog: {
         borderRadius: "1.5rem",
         bg: mode("accent.50", "accent.950")(props),
+        transitionProperty: "background-color",
+        transitionDuration: "normal",
         color: "inherit",
         my: "3.75rem",
         zIndex: "modal",
         maxH: scrollBehavior === "inside" ? "calc(100% - 7.5rem)" : undefined,
         boxShadow: mode("lg", "dark-lg")(props),
+        "&:focus:not([data-focus-visible-added])": {
+          boxShadow: mode("lg", "dark-lg")(props),
+        },
       },
       header: {
         p: "1.5rem",

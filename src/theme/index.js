@@ -2,7 +2,10 @@ import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
 import Button from "./components/Button";
+import FormLabel from "./components/FormLabel";
 import Modal from "./components/Modal";
+import NumberInput from "./components/NumberInput";
+import Switch from "./components/Switch";
 import Text from "./components/Text";
 import colors from "./colors";
 
@@ -10,7 +13,10 @@ const theme = extendTheme({
   colors,
   components: {
     Button,
+    FormLabel,
     Modal,
+    NumberInput,
+    Switch,
     Text,
   },
   config: {
@@ -20,6 +26,11 @@ const theme = extendTheme({
   fonts: {
     heading: "'Roboto Flex', sans-serif",
     body: "'Roboto Flex', sans-serif",
+  },
+  transition: {
+    duration: {
+      normal: "300ms",
+    },
   },
   styles: {
     global: (props) => ({

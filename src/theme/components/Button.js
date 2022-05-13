@@ -25,10 +25,10 @@ export default {
       borderRadius: "24px",
     },
     sm: {
-      h: "34px",
-      minW: "34px",
-      fontSize: "18px",
-      borderRadius: "8px",
+      h: "64px",
+      minW: "64px",
+      fontSize: "20px",
+      borderRadius: "20px",
     },
   },
   variants: {

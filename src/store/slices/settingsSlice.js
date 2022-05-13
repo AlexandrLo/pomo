@@ -3,40 +3,51 @@ import { createSlice } from "@reduxjs/toolkit";
 export const settingsSlice = createSlice({
   name: "settings",
   initialState: {
-    pomoLength: 25,
-    pomoCount: 4,
-    shortBreak: 5,
-    longBreak: 15,
-    autoResume: false,
-    sound: true,
-    notify: true,
+    pomoLength: {
+      friendlyName: "Pomodoro length",
+      type: "number",
+      value: 25,
+    },
+    pomoCount: {
+      friendlyName: "Pomodoros until long break",
+      type: "number",
+      value: 4,
+    },
+    shortBreak: {
+      friendlyName: "Short break length",
+      type: "number",
+      value: 5,
+    },
+    longBreak: {
+      friendlyName: "Long break length",
+      type: "number",
+      value: 15,
+    },
+    autoResume: {
+      friendlyName: "Auto resume timer",
+      type: "bool",
+      value: false,
+    },
+    sound: {
+      friendlyName: "Sound",
+      type: "bool",
+      value: true,
+    },
+    notify: {
+      friendlyName: "Notifications",
+      type: "bool",
+      value: true,
+    },
   },
   reducers: {
-    updatePomoLength: (state, action) => {
-      state.pomoLength = action.payload;
-    },
-    updatePomoCount: (state, action) => {
-      state.pomoCount = action.payload;
-    },
-    updateShortBreak: (state, action) => {
-      state.shortBreak = action.payload;
-    },
-    updateLongBreak: (state, action) => {
-      state.longBreak = action.payload;
-    },
-    toggleAutoResume: (state) => {
-      state.autoResume = !state.autoResume;
-    },
-    toggleSound: (state) => {
-      state.sound = !state.sound;
-    },
-    toggleNotify: (state) => {
-      state.notify = !state.notify;
+    updateSetting: (state, action) => {
+      state[action.payload.name].value = action.payload.value;
     },
   },
 });
 
 export const {
+  updateSetting,
   updatePomoLength,
   updatePomoCount,
   updateShortBreak,

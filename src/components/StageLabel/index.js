@@ -15,14 +15,14 @@ function StageLabel() {
     keys: null,
     from: { opacity: 0, transform: "translate(-50%,0%)", zIndex: 0 },
     enter: { opacity: 1, transform: "translate(-50%,0%)", zIndex: 2 },
-    leave: { opacity: 0, transform: "translate(-50%,-150%)", zIndex: 2 },
+    leave: { opacity: 0, transform: "translate(-50%,-110%)", zIndex: 2 },
   });
   useEffect(() => {
     transRef.start();
   }, [stage]);
 
   return (
-    <Box h="4rem">
+    <Box h="7rem" pt="3.5rem">
       {transitions((style, i) => {
         return (
           <animated.div

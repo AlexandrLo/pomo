@@ -9,7 +9,6 @@ function Chip({ stage }) {
   const [icon, setIcon] = useState(<Brain size={24} />);
 
   const textColor = useColorModeValue("accent.900", "accent.50");
-  const bgColor = useColorModeValue("accent.50", "accent.950");
 
   useEffect(() => {
     switch (stage) {
@@ -31,21 +30,17 @@ function Chip({ stage }) {
 
   return (
     <HStack
-      border="3px solid"
-      bg={bgColor}
-      color={textColor}
-      borderColor={textColor}
-      transitionProperty="background, color, borderColor"
-      transitionDuration="normal"
-      px="1rem"
-      py="0.5rem"
-      borderRadius="1rem"
+      px={["0.75rem", "1rem"]}
+      py={["0.25rem", "0.5rem"]}
       spacing="0.5rem"
+      border="2px solid"
+      borderRadius="full"
+      borderColor={textColor}
+      bg="accentAlpha.100"
+      color={textColor}
     >
       {icon}
-      <Text fontSize="1.5rem" fontWeight={500} whiteSpace="nowrap">
-        {name}
-      </Text>
+      <Text variant="label">{name}</Text>
     </HStack>
   );
 }

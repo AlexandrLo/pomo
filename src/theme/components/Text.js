@@ -7,5 +7,10 @@ export default {
       transitionProperty: "color",
       transitionDuration: "normal",
     },
+    label: {
+      fontSize: ["1.25rem", "1.5rem"],
+      fontWeight: 500,
+      whiteSpace: "nowrap",
+    },
   },
 };

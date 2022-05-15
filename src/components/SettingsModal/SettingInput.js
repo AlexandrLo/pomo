@@ -66,7 +66,7 @@ function SettingInput({
       {type == "bool" && (
         <Switch
           id={name}
-          isChecked={isChecked ? isChecked : value}
+          isChecked={value}
           onChange={onChange ? onChange : switchHandler}
         />
       )}

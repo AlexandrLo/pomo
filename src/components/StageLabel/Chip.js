@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
+import { Box, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import { Brain, Coffee } from "phosphor-react";
-import { HStack, Text, useColorModeValue } from "@chakra-ui/react";
 
 function Chip({ stage }) {
   const [name, setName] = useState("");
@@ -15,15 +15,15 @@ function Chip({ stage }) {
       default:
       case "POMO":
         setName("Focus");
-        setIcon(<Brain size={32} />);
+        setIcon(<Brain />);
         break;
       case "SHORT_BREAK":
         setName("Short Break");
-        setIcon(<Coffee size={32} />);
+        setIcon(<Coffee />);
         break;
       case "LONG_BREAK":
         setName("Long Break");
-        setIcon(<Coffee size={32} />);
+        setIcon(<Coffee />);
         break;
     }
   }, [stage]);
@@ -39,7 +39,7 @@ function Chip({ stage }) {
       bg="accentAlpha.100"
       color={textColor}
     >
-      {icon}
+      <Box fontSize={["1.5rem", "2rem"]}>{icon}</Box>
       <Text variant="label">{name}</Text>
     </HStack>
   );

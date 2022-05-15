@@ -123,12 +123,12 @@ function App() {
         align="center"
         justify="center"
         minH="100vh"
-        p="1.5rem"
-        spacing="2rem"
+        p={["1rem", "1.5rem"]}
+        spacing={["1rem", "2rem"]}
       >
         <StageLabel />
         <Display minutes={minutes} seconds={seconds} />
-        <HStack>
+        <HStack pb="3.5rem">
           <MenuButton />
           <PlayButton />
           <SkipButton />

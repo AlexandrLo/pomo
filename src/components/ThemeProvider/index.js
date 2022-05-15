@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 
+import ThemeColorUpdater from "components/ThemeColorUpdater";
 import { customLocalStorageManager } from "utils/customLocalStorageManager";
 import theme from "theme";
-import { useSelector } from "react-redux";
 
 function ThemeProvider({ children }) {
   const stage = useSelector((state) => state.timer.stage);
@@ -54,6 +55,7 @@ function ThemeProvider({ children }) {
       colorModeManager={customLocalStorageManager}
     >
       <ColorModeScript initialColorMode={stageTheme.config.initialColorMode} />
+      <ThemeColorUpdater />
       {children}
     </ChakraProvider>
   );

@@ -19,7 +19,6 @@ import shortBreakStartSfx from "assets/sounds/short_break_start.m4a";
 import startSfx from "assets/sounds/start.m4a";
 import { nextStage, toggleRunning } from "store/slices/timerSlice";
 import { notifyMe, requestNotifications } from "utils/notify";
-import ThemeColorUpdater from "components/ThemeColorUpdater";
 
 function App() {
   const dispatch = useDispatch();
@@ -114,7 +113,6 @@ function App() {
 
   return (
     <Container>
-      <ThemeColorUpdater />
       <TitleUpdater
         minutes={minutes}
         seconds={seconds}

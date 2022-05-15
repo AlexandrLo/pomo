@@ -9,16 +9,24 @@ import { animated, useSpring } from "react-spring";
 function Display({ minutes = 0, seconds = 0 }) {
   const isRunning = useSelector((state) => state.timer.isRunning);
 
-  const [style, api] = useSpring(() => ({ to: { fontWeight: 400 } }));
+  const [style, api] = useSpring(() => ({ to: {} }));
 
   useEffect(() => {
-    api.start({
-      to: { fontWeight: isRunning ? 800 : 400 },
-      config: {
-        tension: 180,
-        friction: 11,
-      },
-    });
+    const config = {
+      tension: 180,
+      friction: 11,
+    };
+    if (isRunning) {
+      api.start({
+        to: { fontVariationSettings: "'wght' 800, 'wdth' 110, 'opsz' 14" },
+        config,
+      });
+    } else {
+      api.start({
+        to: { fontVariationSettings: "'wght' 400, 'wdth' 110, 'opsz' 14" },
+        config,
+      });
+    }
   }, [isRunning]);
 
   const formatedMinutes = DateTime.fromFormat(`${minutes}`, "m").toFormat("mm");

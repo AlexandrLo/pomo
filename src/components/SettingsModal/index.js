@@ -30,7 +30,7 @@ function SettingsModal({ isOpen, onClose }) {
             name="darkModeSwitch"
             friendlyName="Enable dark mode"
             type="bool"
-            isChecked={colorMode === "dark"}
+            value={colorMode === "dark"}
             onChange={toggleColorMode}
           />
           {Object.entries(settings).map(

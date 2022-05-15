@@ -3,13 +3,12 @@ import React from "react";
 import { DateTime } from "luxon";
 import { Helmet } from "react-helmet-async";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-function TitleUpdater({
-  minutes = 0,
-  seconds = 0,
-  stage = "POMO",
-  isRunning = false,
-}) {
+function TitleDisplay({ minutes = 0, seconds = 0 }) {
+  const isRunning = useSelector((state) => state.timer.isRunning);
+  const stage = useSelector((state) => state.timer.stage);
+
   if (isRunning) {
     let stageName = "";
 
@@ -32,8 +31,8 @@ function TitleUpdater({
     ).toFormat("mm:ss");
 
     return (
-      <Helmet>
-        <title>{`${formatedtime} - ${stageName}`}</title>
+      <Helmet defer={false}>
+        <title>{`${stageName} - ${formatedtime}`}</title>
       </Helmet>
     );
   } else {
@@ -45,11 +44,9 @@ function TitleUpdater({
   }
 }
 
-TitleUpdater.propTypes = {
+TitleDisplay.propTypes = {
   minutes: PropTypes.number,
   seconds: PropTypes.number,
-  stage: PropTypes.string,
-  isRunning: PropTypes.bool,
 };
 
-export default TitleUpdater;
+export default TitleDisplay;

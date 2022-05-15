@@ -1,6 +1,9 @@
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
+import "@fontsource/roboto-flex/variable-full.css";
+import "@fontsource/roboto-flex/400.css";
+
 import Button from "./components/Button";
 import FormLabel from "./components/FormLabel";
 import Modal from "./components/Modal";
@@ -24,8 +27,8 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   fonts: {
-    heading: "'Roboto Flex', sans-serif",
-    body: "'Roboto Flex', sans-serif",
+    heading: "'Roboto FlexVariable', 'Roboto Flex', Roboto, sans-serif",
+    body: "'Roboto FlexVariable', 'Roboto Flex', Roboto, sans-serif",
   },
   transition: {
     duration: {

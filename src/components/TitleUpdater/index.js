@@ -32,8 +32,8 @@ function TitleUpdater({
     ).toFormat("mm:ss");
 
     return (
-      <Helmet>
-        <title>{`${formatedtime} - ${stageName}`}</title>
+      <Helmet defer={false}>
+        <title>{`${stageName} - ${formatedtime}`}</title>
       </Helmet>
     );
   } else {

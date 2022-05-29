@@ -15,6 +15,8 @@
     <br />
     <a href="https://alexandrlo.github.io/pomo/">View App</a>
     ·
+    <a href="https://www.figma.com/community/file/1112830528857083939">Figma File</a>
+    ·
     <a href="https://github.com/AlexandrLo/pomo/issues">Report Bug</a>
     ·
     <a href="https://github.com/AlexandrLo/pomo/issues">Request Feature</a>

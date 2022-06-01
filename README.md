@@ -19,7 +19,15 @@
     ·
     <a href="https://github.com/AlexandrLo/pomo/issues">Report Bug</a>
     ·
-    <a href="https://github.com/AlexandrLo/pomo/issues">Request Feature</a>
+    <a href="https://github.com/AlexandrLo/pomo/issues">Request Feature</a>   
+    <br />
+    <br />
+    <a href="https://github.com/AlexandrLo/pomo/actions/workflows/deploy.yml">
+      <img src="https://github.com/AlexandrLo/pomo/actions/workflows/deploy.yml/badge.svg" alt="Deploy" >
+    </a>
+    <a href="https://github.com/AlexandrLo/pomo/actions/workflows/pages/pages-build-deployment">
+      <img src="https://github.com/AlexandrLo/pomo/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages" alt="pages-build-deployment" >
+    </a>
   </p>
 </div>
 

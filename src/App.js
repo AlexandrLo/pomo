@@ -1,5 +1,6 @@
 import React from "react";
 
+import FaviconUpdater from "components/FaviconUpdater";
 import FullScreenPlayButton from "components/FullScreenPlayButton";
 import HotKeysManager from "components/HotKeysManager";
 import Notifications from "components/Notifications";
@@ -13,6 +14,7 @@ function App() {
       <Sounds />
       <FullScreenPlayButton />
       <HotKeysManager />
+      <FaviconUpdater />
       <Timer />
     </>
   );

@@ -19,9 +19,6 @@ export default {
         zIndex: "modal",
         maxH: scrollBehavior === "inside" ? "calc(100% - 7.5rem)" : undefined,
         boxShadow: mode("lg", "dark-lg")(props),
-        "&:focus:not([data-focus-visible-added])": {
-          boxShadow: mode("lg", "dark-lg")(props),
-        },
       },
       header: {
         p: "1.5rem",

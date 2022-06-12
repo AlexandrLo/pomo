@@ -10,16 +10,10 @@ module.exports = {
     filename: "app.bundle.js",
     clean: true,
   },
-  mode: process.env.NODE_ENV || "development",
-  devtool: "source-map",
+  mode: "production",
   resolve: {
     extensions: [".jsx", ".js"],
     modules: ["node_modules", "src"],
-  },
-  devServer: {
-    hot: true,
-    historyApiFallback: true,
-    port: process.env.PORT ?? 8000,
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, useBreakpointValue } from "@chakra-ui/react";
+import { Button, VisuallyHidden, useBreakpointValue } from "@chakra-ui/react";
 import { Pause, Play } from "phosphor-react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,6 +18,7 @@ function PlayButton() {
       onClick={() => dispatch(toggleRunning())}
     >
       {isRunning ? <Pause weight="fill" /> : <Play weight="fill" />}
+      <VisuallyHidden>Play</VisuallyHidden>
     </Button>
   );
 }

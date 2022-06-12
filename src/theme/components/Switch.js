@@ -7,12 +7,6 @@ export default {
       _checked: {
         bg: "accentAlpha.700",
       },
-      "&[data-focus]": {
-        boxShadow: "none",
-      },
-      "input.focus-visible + &[data-focus]": {
-        boxShadow: "outline",
-      },
     },
     thumb: {
       bg: mode("accent.50", "accent.950")(props),

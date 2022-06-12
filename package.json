@@ -10,7 +10,6 @@
     "@emotion/styled": "^11.9.3",
     "@fontsource/roboto-flex": "^4.5.0",
     "@reduxjs/toolkit": "^1.8.2",
-    "focus-visible": "^5.2.0",
     "framer-motion": "^6.3.11",
     "luxon": "^2.4.0",
     "phosphor-react": "^1.4.1",

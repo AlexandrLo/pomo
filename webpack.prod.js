@@ -32,6 +32,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(mp3|m4a)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /\.svg$/,
         use: {
           loader: "@svgr/webpack",

@@ -26,10 +26,10 @@ function Notifications() {
     }
   }, [stage]);
 
-  // Request notification permission on mount
+  // Request notification permission on play
   useEffect(() => {
-    requestNotifications();
-  }, []);
+    if (isRunning) requestNotifications();
+  }, [isRunning]);
 
   return null;
 }

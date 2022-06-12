@@ -1,7 +1,10 @@
 {
+  "name": "pomo",
+  "homepage": "https://github.com/AlexandrLo/pomo",
+  "version": "2.3.1",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "lint": "eslint --ext .jsx,.js src/"
   },
   "dependencies": {

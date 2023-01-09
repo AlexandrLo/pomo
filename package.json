@@ -14,7 +14,7 @@
     "@fontsource/roboto-flex": "^4.5.0",
     "@reduxjs/toolkit": "^1.8.2",
     "framer-motion": "^6.3.11",
-    "luxon": "^2.4.0",
+    "luxon": "^2.5.2",
     "phosphor-react": "^1.4.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
